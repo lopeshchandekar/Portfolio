@@ -1,4 +1,10 @@
 import { useEffect, useState, type ReactNode } from "react";
+import { CaseStudyAhaSaas } from "./CaseStudyAhaSaas";
+import { CaseStudyAhaWebsite } from "./CaseStudyAhaWebsite";
+import { CaseStudyInox } from "./CaseStudyInox";
+import { CaseStudyPrescrip } from "./CaseStudyPrescrip";
+import { CaseStudyEpix } from "./CaseStudyEpix";
+import { CaseStudyAcrossfit } from "./CaseStudyAcrossfit";
 
 const works = [
   {
@@ -22,12 +28,29 @@ const works = [
       { value: "5", label: "User roles" },
     ],
     visual: "saas" as const,
+    href: "#aha-saas",
+  },
+  {
+    id: "maruti",
+    kicker: "Entertainment Platform · Mobile App",
+    title: "INOX PVR Movie Booking App",
+    body: "Redesigned the cinema experience to simplify movie booking and introduce a clearer F&B journey — making it easier for users to discover offers, order food, and redeem promotions during their cinema visit.",
+    meta: "| Cinema Platform · Product Designer · UX/UI Design",
+    tags: ["UX Redesign", "F&B Experience", "Offer Discovery", "QR Redemption"],
+    cta: "View Case Study",
+    href: "#inox",
+    stats: [
+      { value: "6%", label: "Faster booking" },
+      { value: "+4%", label: "App Downloads" },
+      { value: "Better", label: "F&B Engagement" },
+    ],
+    visual: "maruti" as const,
   },
   {
     id: "aha-landing",
     kicker: "Website · Growth Design",
-    title: "AHA Smart Home Landing Page",
-    body: "Built and optimized a high-performing landing page, driving SEO-led traffic and contributing to ₹1Cr+ in revenue (through leads)",
+    title: "AHA Smart Home Website Revamp",
+    body: "Built and Optimized a High-Performing Website Pages, driving SEO-led traffic and Contributing to ₹1Cr+ in Revenue (through Leads)",
     meta: "| Brand Website · Sr. UI/UX Designer",
     tags: [
       "Conversion Design",
@@ -42,6 +65,7 @@ const works = [
       { value: "1CR+", label: "Revenue Generated" },
     ],
     visual: "landing" as const,
+    href: "#aha-landing",
   },
   {
     id: "prescrip",
@@ -56,6 +80,7 @@ const works = [
       "SEO Optimization",
     ],
     cta: "View Case Study",
+    href: "#prescrip-case",
     stats: [
       { value: "8%", label: "Doctor Sign-Ups ↑" },
       { value: "2X", label: "Faster User Journey Completion" },
@@ -67,7 +92,7 @@ const works = [
     id: "epix",
     kicker: "Entertainment Platform · Web & Mobile",
     title: "Epix Cinemas",
-    body: "Redesigned the Epix Cinemas digital experience to improve movie discovery, streamline ticket booking journeys, and create a more engaging cross-platform user experience across web and mobile.",
+    body: "Designed Epix Cinemas’ first digital booking experience — a booking bar on home, VIP / Kids / XL filters beside Now Showing, and only seats and pay after Book Now — for a cinema that previously had no website.",
     meta: "| Cinema Platform · Sr UI UX Designer · 2025–Present · Bahrain",
     tags: [
       "Journey Mapping",
@@ -75,33 +100,14 @@ const works = [
       "Conversion Design",
       "Web & Mobile UI UX",
     ],
-    cta: "View Prototype",
+    cta: "View Case Study",
+    href: "#epix",
     stats: [
-      { value: "15%", label: "Revenue Increases" },
-      { value: "2M+", label: "Platform Users" },
-      { value: "10K", label: "App downloads ↑" },
+      { value: "15%", label: "Sales increase" },
+      { value: "2M+", label: "App downloads" },
+      { value: "1,100+", label: "Seats across 10 screens" },
     ],
-    visual: "landing" as const,
-  },
-  {
-    id: "maruti",
-    kicker: "/Live · iOS & Android",
-    title: "Maruti Suzuki",
-    body: "Maruti Suzuki's digital experience was split across 3 disconnected apps. I unified it into one super app directing 6 designers across buying, loyalty, servicing & post-sale.",
-    meta: "| Consumer Super App · Design Lead · 2025–Present",
-    tags: [
-      "Usability Testing",
-      "Affinity Mapping",
-      "Heuristic Evaluation",
-      "Mental Model Mapping",
-    ],
-    cta: "Project Teaser",
-    secondary: "Full Story Coming Soon",
-    stats: [
-      { value: "3M+", label: "Installs" },
-      { value: "3%", label: "Booking ↑" },
-    ],
-    visual: "prescrip" as const,
+    visual: "epix" as const,
   },
   {
     id: "acrossfit",
@@ -111,6 +117,7 @@ const works = [
     meta: "| Fitness Management App · Product Designer",
     tags: ["Design System", "Fitness App", "Mobile UX", "User Engagement"],
     cta: "View Case Study",
+    href: "#acrossfit",
     stats: [
       { value: "425+", label: "Active Users" },
       { value: "35%+", label: "Increase in User Retention" },
@@ -153,13 +160,36 @@ const stamps = [
   },
 ];
 
+const clientLogos = [
+  { src: "/assets/logo-prescrip.png", alt: "prescrip" },
+  { src: "/assets/logo-inox.png", alt: "INOX" },
+  { src: "/assets/logo-vijay.png", alt: "Vijay Sales" },
+  { src: "/assets/logo-ajb.png", alt: "Agent Jack's" },
+  { src: "/assets/logo-cossmic.png", alt: "Cossmic" },
+  { src: "/assets/logo-aha.png", alt: "AHA" },
+  { src: "/assets/logo-drinx.png", alt: "Drinx Exchange" },
+  { src: "/assets/logo-raylogic.png", alt: "raylogic" },
+];
+
+function ClientLogoRow({ decorative = false }: { decorative?: boolean }) {
+  return (
+    <div className="logo-set" aria-hidden={decorative || undefined}>
+      {clientLogos.map((logo) => (
+        <img key={`${decorative ? "dup-" : ""}${logo.alt}`} src={logo.src} alt={decorative ? "" : logo.alt} />
+      ))}
+    </div>
+  );
+}
+
 function OffsetButton({
   href,
+  download,
   children,
   icon,
   className = "",
 }: {
   href?: string;
+  download?: boolean | string;
   children: ReactNode;
   icon: string;
   className?: string;
@@ -167,14 +197,21 @@ function OffsetButton({
   const inner = (
     <>
       {children}
-      <span style={{ width: 24, height: 24, overflow: "hidden", flex: "0 0 24px" }}>
-        <img src={icon} alt="" width={13} height={13} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+      <span className="offset-btn-icon">
+        <img src={icon} alt="" width={12} height={12} />
       </span>
     </>
   );
   if (href) {
+    const fileName = download === true ? href.split("/").pop() : download || undefined;
+    const external = href.startsWith("http") && !fileName;
     return (
-      <a className={`offset-btn ${className}`} href={href}>
+      <a
+        className={`offset-btn ${className}`}
+        href={href}
+        {...(fileName ? { download: fileName } : {})}
+        {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+      >
         {inner}
       </a>
     );
@@ -203,13 +240,18 @@ function Header() {
       <a className="brand" href="#top">
         <img src="/assets/avatar.png" alt="" width={20} height={20} />
         <span>
-          I’m <em>Lopesh Chandekar</em>
+          <span className="brand-im">I’m </span>
+          <em>Lopesh Chandekar</em>
         </span>
       </a>
       <nav className="nav-links">
         <a href="#about">About me</a>
-        <a className="resume-link" href="#resume">
-          Download Resume
+        <a
+          className="resume-link"
+          href="/Lopesh_A_Chandekar_Resume.pdf"
+          download="Lopesh_A_Chandekar_Resume.pdf"
+        >
+          <span className="resume-text">Download Resume</span>
           <img src="/assets/icon-download.svg" alt="" width={12} height={12} />
         </a>
       </nav>
@@ -218,39 +260,27 @@ function Header() {
 }
 
 function WorkVisual({ type }: { type: (typeof works)[number]["visual"] }) {
-  if (type === "saas") {
+  const shots: Partial<Record<(typeof works)[number]["visual"], { src: string; alt: string }>> = {
+    saas: { src: "/assets/img-aha-saas.png", alt: "AHA SaaS Proposal Management dashboard" },
+    landing: { src: "/assets/img-aha-website.png", alt: "AHA Smart Homes website on a laptop" },
+    prescrip: { src: "/assets/img-prescrip-app.png", alt: "Prescrip transactions app on a phone" },
+    epix: { src: "/assets/img-epix-cinemas.png", alt: "Epix Cinemas website on a laptop" },
+    maruti: { src: "/assets/img-maruti.png?v=2", alt: "INOX PVR movie booking and F&B app screens" },
+    acrossfit: { src: "/assets/img-acrossfit.png", alt: "Acrossfit Kaali workout dashboard and get started screens" },
+  };
+
+  if (type in shots && shots[type]) {
+    const shot = shots[type];
     return (
       <div className="work-visual">
-        <img className="bg" src="/assets/aha-saas-bg.png" alt="" />
-        <img className="shot" src="/assets/aha-saas.png" alt="AHA SaaS dashboard" />
+        <img className="shot fill" src={shot.src} alt={shot.alt} />
       </div>
     );
   }
-  if (type === "landing") {
-    return (
-      <div className="work-visual">
-        <img className="bg" src="/assets/aha-landing-bg.png" alt="" />
-        <img className="shot" src="/assets/aha-landing.png" alt="Website on a laptop" />
-      </div>
-    );
-  }
-  if (type === "acrossfit") {
-    return (
-      <div className="work-visual">
-        <img className="bg" src="/assets/acrossfit-bg.png" alt="" />
-        <div className="phones">
-          <img className="front" src="/assets/acrossfit-phone-a.png" alt="Acrossfit app dashboard" />
-          <img className="back" src="/assets/acrossfit-phone-b.png" alt="Acrossfit get started screen" />
-        </div>
-      </div>
-    );
-  }
+
   return (
     <div className="work-visual">
       <img className="bg" src="/assets/hero-photo.png" alt="" />
-      <div className="phones">
-        <img className="front" src="/assets/hero-phone.png" alt="Mobile app mockup" />
-      </div>
     </div>
   );
 }
@@ -258,10 +288,16 @@ function WorkVisual({ type }: { type: (typeof works)[number]["visual"] }) {
 function Home() {
   return (
     <>
-      <section className="hero">
-        <div>
+      <section className="hero" aria-label="Hero">
+        <div className="hero-copy" data-reveal>
           <p className="eyebrow">6+ years of experience</p>
-          <h1>Sr. Product Designer, Turning Complexity into Clarity.</h1>
+          <h1>
+            Sr. Product Designer,
+            <br />
+            Turning Complexity
+            <br />
+            into Clarity.
+          </h1>
           <div className="focus">
             <span className="focus-label">My focus:</span>
             {["Product Strategy", "Interaction Design", "System Design", "UX Thinking", "Growth Design"].map(
@@ -276,37 +312,31 @@ function Home() {
             View Selected Work
           </OffsetButton>
         </div>
-        <div className="hero-visual">
-          <div className="ticker" aria-hidden="true">
-            <img src="/assets/hero-ticker.svg" alt="" />
-            <img src="/assets/hero-ticker.svg" alt="" />
-          </div>
-          <div className="hero-stage">
-            <img className="photo" src="/assets/hero-photo.png" alt="" />
-          </div>
-        </div>
+        <a className="hero-visual" href="#maruti" aria-label="View INOX PVR Movie Booking App" data-reveal>
+          <img
+            className="hero-shot"
+            src="/assets/hero-visual.png?v=3"
+            alt="INOX PVR Movie Booking App — view project"
+          />
+        </a>
       </section>
 
       <section className="clients" aria-label="Clients">
         <h2>Clients</h2>
-        <div className="logo-row">
-          <img src="/assets/logo-prescrip.png" alt="prescrip" />
-          <img src="/assets/logo-inox.png" alt="INOX" />
-          <img src="/assets/logo-vijay.png" alt="Vijay Sales" />
-          <img src="/assets/logo-ajb.png" alt="Agent Jack's" />
-          <img src="/assets/logo-cossmic.png" alt="Cossmic" />
-          <img src="/assets/logo-aha.png" alt="AHA" />
-          <img src="/assets/logo-drinx.png" alt="Drinx Exchange" />
-          <img src="/assets/logo-raylogic.png" alt="raylogic" />
+        <div className="logo-ticker">
+          <div className="logo-track">
+            <ClientLogoRow />
+            <ClientLogoRow decorative />
+          </div>
         </div>
       </section>
 
-      <h2 className="section-title" id="work">
+      <h2 className="section-title" id="work" data-reveal>
         Selected Works
       </h2>
       <div className="works">
         {works.map((work) => (
-          <article className="work" key={work.id} id={work.id}>
+          <article className="work" key={work.id} id={work.id} data-reveal>
             <div className="work-copy">
               <div>
                 <p className="kicker">{work.kicker}</p>
@@ -321,10 +351,9 @@ function Home() {
                   ))}
                 </div>
                 <div style={{ display: "flex", gap: 16, marginTop: 32, flexWrap: "wrap", alignItems: "center" }}>
-                  <OffsetButton icon="/assets/icon-arrow-ne.svg">{work.cta}</OffsetButton>
-                  {"secondary" in work && work.secondary ? (
-                    <span style={{ fontSize: 14, color: "var(--grey-50)" }}>{work.secondary}</span>
-                  ) : null}
+                  <OffsetButton href={"href" in work ? work.href : undefined} icon="/assets/icon-arrow-ne.svg">
+                    {work.cta}
+                  </OffsetButton>
                 </div>
               </div>
               <div className="stats">
@@ -347,7 +376,7 @@ function Home() {
         <h2>How I Think</h2>
         <div className="stamps">
           {stamps.map((item) => (
-            <article className="stamp" key={item.title}>
+            <article className="stamp" key={item.title} data-reveal>
               <img src={item.img} alt="" width={300} height={300} />
               <h3>{item.title}</h3>
               <p className="phase">{item.phase}</p>
@@ -360,20 +389,20 @@ function Home() {
       <section className="experience" id="about">
         <div className="experience-head">
           <h2>Where I’ve been</h2>
-          <span>[5 + years]</span>
+          <span>[6+ Years]</span>
         </div>
         <div className="jobs">
-          <div className="job">
+          <div className="job" data-reveal>
             <h3>Sr Product Designer</h3>
             <time>Jun 2024 – Present</time>
             <div className="company">AHA! Smart Homes</div>
           </div>
-          <div className="job">
+          <div className="job" data-reveal>
             <h3>Senior UI/UX Designer</h3>
             <time>May 2022 – Jun 2024</time>
             <div className="company">Aurus IT Solutions</div>
           </div>
-          <div className="job">
+          <div className="job" data-reveal>
             <h3>Junior UI/UX Designer</h3>
             <time>Apr 2020 – May 2022</time>
             <div className="company">Aurus IT Solutions</div>
@@ -393,13 +422,13 @@ function Home() {
         </div>
         <div className="testi-rule" />
         <div className="testi-grid">
-          <p className="kind-words">
+          <p className="kind-words" data-reveal>
             Kind ♡ Words from
             <br />
             <span>Collaborators</span>
           </p>
           <div className="rule-v" />
-          <div className="quotes">
+          <div className="quotes" data-reveal>
             <blockquote>
               <p>
                 Working with Lopesh was a great experience. He brings clarity to complex product requirements and
@@ -458,7 +487,12 @@ function Footer() {
         </div>
       </div>
       <div className="footer-cta">
-        <OffsetButton className="white" href="#resume" icon="/assets/icon-download-lg.svg">
+        <OffsetButton
+          className="white"
+          href="/Lopesh_A_Chandekar_Resume.pdf"
+          download="Lopesh_A_Chandekar_Resume.pdf"
+          icon="/assets/icon-download-lg.svg"
+        >
           Download Resume
         </OffsetButton>
       </div>
@@ -482,12 +516,63 @@ export default function App() {
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
+  useEffect(() => {
+    const targets = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    if (!targets.length) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced || !("IntersectionObserver" in window)) {
+      targets.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries
+          .filter((entry) => entry.isIntersecting)
+          .forEach((entry, i) => {
+            const el = entry.target as HTMLElement;
+            // Stagger items that cross the threshold together.
+            el.style.transitionDelay = `${Math.min(i * 70, 280)}ms`;
+            el.classList.add("is-visible");
+            observer.unobserve(el);
+          });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -8% 0px" },
+    );
+
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [hash]);
+
   const showAbout = hash === "#about-more";
+  const showAhaSaas = hash === "#aha-saas";
+  const showAhaWebsite = hash === "#aha-landing";
+  const showInox = hash === "#inox";
+  const showPrescrip = hash === "#prescrip-case";
+  const showEpix = hash === "#epix";
+  const showAcrossfit = hash === "#acrossfit";
 
   return (
     <div id="top">
       <Header />
-      {showAbout ? <About /> : <Home />}
+      {showAhaSaas ? (
+        <CaseStudyAhaSaas />
+      ) : showAhaWebsite ? (
+        <CaseStudyAhaWebsite />
+      ) : showInox ? (
+        <CaseStudyInox />
+      ) : showPrescrip ? (
+        <CaseStudyPrescrip />
+      ) : showEpix ? (
+        <CaseStudyEpix />
+      ) : showAcrossfit ? (
+        <CaseStudyAcrossfit />
+      ) : showAbout ? (
+        <About />
+      ) : (
+        <Home />
+      )}
       <Footer />
     </div>
   );
