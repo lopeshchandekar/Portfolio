@@ -1514,6 +1514,63 @@
   font-weight: 700;
 }
 
+.cs-aha-saas .cs-aha-approach {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.cs-aha-saas .cs-aha-approach li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.cs-aha-saas .cs-aha-approach-mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.cs-aha-saas .cs-aha-approach-mark svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  padding: 9px;
+  border-radius: 10px;
+  box-sizing: content-box;
+  color: #4d4afc;
+  background: #eef0ff;
+}
+
+.cs-aha-saas .cs-aha-approach b {
+  color: #4d4afc;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding-top: 0;
+}
+
+.cs-aha-saas .cs-aha-approach strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--black);
+}
+
+.cs-aha-saas .cs-aha-approach p {
+  margin: 0;
+}
+
+.cs-aha-saas .cs-stats p {
+  font-weight: 400;
+}
+
 .cs-aha-saas .cs-table td:first-child {
   width: 170px;
   color: inherit;

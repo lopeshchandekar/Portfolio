@@ -4,6 +4,9 @@ import "./case-study.css";
 const proto =
   "https://www.figma.com/proto/iPXYsUGPaQrk3tMgygtu8U/AHA-Project-Management-APP?node-id=4538-7525&t=nPHilSFSrehJrV9z-0&scaling=min-zoom&content-scaling=fixed&page-id=3063%3A5293&starting-point-node-id=4538%3A7525&hide-ui=1";
 
+const protoEmbed =
+  "https://embed.figma.com/proto/iPXYsUGPaQrk3tMgygtu8U/AHA-Project-Management-APP?node-id=4538-7525&scaling=scale-down-width&content-scaling=fixed&page-id=3063%3A5293&starting-point-node-id=4538%3A7525&hide-ui=1&embed-host=share";
+
 const facts = [
   { label: "Client", value: "AHA Smart Homes" },
   { label: "Product", value: "Internal operations SaaS, first version" },
@@ -33,37 +36,60 @@ const userRoles = [
     name: "Consultant",
     color: "#4d4afc",
     people: 2 as const,
-    job: "Sales. Runs the demo, places devices on the HA diagram, prices the job, generates the PDF, sends it on WhatsApp.",
+    job: "Sales. Demo, HA diagram, price, PDF on WhatsApp.",
   },
   {
     name: "Project Manager",
     color: "#7b5cff",
     people: 2 as const,
-    job: "Opens the client WhatsApp group, assigns daily tasks in the SaaS, watches what is still pending.",
+    job: "Client WhatsApp group, daily tasks, what is still pending.",
   },
   {
     name: "Engineer",
     color: "#1a7a4c",
     people: 2 as const,
-    job: "Site visit first, then install on tablet or desktop. Marks work done against the same job.",
+    job: "Site visit, then install on tablet or desktop.",
   },
   {
     name: "Procurement",
     color: "#2bb8b3",
     people: 2 as const,
-    job: "Inventory for this job, including third-party devices the site visit added.",
+    job: "Inventory for this job, including third-party devices.",
   },
   {
     name: "Accountant",
     color: "#e0a800",
     people: 1 as const,
-    job: "Received vs pending on that job. Chases by email, the WhatsApp group, or a call. Unpaid parts do not get installed.",
+    job: "Received vs pending. Unpaid parts are not installed.",
   },
   {
     name: "Management",
     color: "#ff3a39",
     people: 1 as const,
-    job: "Sees the portfolio. Sits on the same WhatsApp group so the client’s picture matches the office.",
+    job: "Sees all jobs. Also on the client WhatsApp group.",
+  },
+];
+
+const approach = [
+  {
+    icon: "research",
+    title: "User research",
+    text: "I sat with the people who already run these jobs: consultants, PMs, engineers, procurement, accounts, and management. Also with the product manager and senior developer. Interviews and personas.",
+  },
+  {
+    icon: "analysis",
+    title: "Analysis",
+    text: "We followed one job from first lead to handover. Same customer was in CRM, Excel, paper drawings, WhatsApp, and a separate accounts file.",
+  },
+  {
+    icon: "structure",
+    title: "Structure",
+    text: "Card sorting with all six roles. That told us how they already group a job: proposal, devices on a floor plan, install tasks, inventory, and payment.",
+  },
+  {
+    icon: "design",
+    title: "Design and test",
+    text: "I designed six home dashboards, the HA diagram, and the prototype. We tested proposal, install tracking, and payment with the team before development.",
   },
 ];
 
@@ -251,6 +277,43 @@ function JourneyIcon({ name }: { name: string }) {
   }
 }
 
+function ApproachIcon({ name }: { name: string }) {
+  const stroke = { fill: "none", stroke: "currentColor", strokeWidth: 1.7, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+  switch (name) {
+    case "research":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6" {...stroke} />
+          <path d="M16 16l5 5" {...stroke} />
+        </svg>
+      );
+    case "analysis":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 19V8M10 19V5M16 19v-7M22 19H2" {...stroke} />
+        </svg>
+      );
+    case "structure":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="4" width="7" height="7" rx="1.2" {...stroke} />
+          <rect x="14" y="4" width="7" height="7" rx="1.2" {...stroke} />
+          <rect x="3" y="13" width="7" height="7" rx="1.2" {...stroke} />
+          <rect x="14" y="13" width="7" height="7" rx="1.2" {...stroke} />
+        </svg>
+      );
+    case "design":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="4" y="4" width="16" height="16" rx="2" {...stroke} />
+          <path d="M8 14l3-3 3 2 3-4" {...stroke} />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 function PeopleIcon({ color, people }: { color: string; people: 1 | 2 }) {
   if (people === 1) {
     return (
@@ -414,12 +477,18 @@ export function CaseStudyAhaSaas() {
               Procurement stays on inventory the whole way.
             </li>
           </ol>
-          <img
-            className="cs-figure"
-            src="/assets/cs-aha-what.png?v=4"
-            alt="AHA Sales Order Management: mapping devices onto a floor plan"
-          />
-          <p className="cs-caption">The HA diagram is how sales prices the job. It is not a pretty extra on the proposal.</p>
+          <figure className="cs-desktop">
+            <div className="cs-desktop-bezel">
+              <div className="cs-desktop-bar" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
+              <div className="cs-desktop-screen">
+                <iframe title="AHA Sales Order Management, interactive prototype" src={protoEmbed} allowFullScreen />
+              </div>
+            </div>
+          </figure>
         </section>
 
         <section className="cs-block">
@@ -471,10 +540,26 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="03">Who opens what</Seq>
-          <p>
-            Six internal roles, six home dashboards. Nobody outside AHA logs in.
-          </p>
+          <Seq n="03">My Approach</Seq>
+          <ol className="cs-aha-approach">
+            {approach.map((item, i) => (
+              <li key={item.title}>
+                <div className="cs-aha-approach-mark">
+                  <ApproachIcon name={item.icon} />
+                  <b>{String(i + 1).padStart(2, "0")}</b>
+                </div>
+                <div>
+                  <strong>{item.title}</strong>
+                  <p>{item.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="cs-block">
+          <Seq n="04">User Roles</Seq>
+          <p>Six roles, six dashboards. Only AHA staff log in.</p>
           <div className="cs-role-grid">
             {userRoles.map((role) => (
               <article className="cs-role-card cs-role-card-job" key={role.name}>
@@ -489,7 +574,7 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="04">Discovery &amp; Research</Seq>
+          <Seq n="05">Discovery &amp; Research</Seq>
           <p>
             I sat with the people who already run these jobs: consultants, PMs, engineers, procurement, accounts, and
             management. Also with the product manager and senior developer. Interviews and personas. Then we wrote what
@@ -525,7 +610,7 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="05">Information architecture</Seq>
+          <Seq n="06">Information architecture</Seq>
           <p>
             Card sorting with consultants, PMs, engineers, procurement, accounts, and management showed how they already
             grouped a job: proposals, devices on a floor plan, installation tasks, inventory, and payments.
@@ -542,7 +627,7 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="06">Design system</Seq>
+          <Seq n="07">Design system</Seq>
           <p>
             Six dashboards still have to feel like one company. Tokens, type, and shared components kept web and tablet
             from drifting while each home stayed role-specific.
@@ -555,7 +640,7 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="07">How a job moves through the product</Seq>
+          <Seq n="08">How a job moves through the product</Seq>
           <p>
             From the first customer on file to closed or deal won. Each step is a screen, not a slide in a process deck.
           </p>
@@ -579,7 +664,7 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="08">What changed</Seq>
+          <Seq n="09">What changed</Seq>
           <p>
             After launch, teams reported about <strong>50% less operational work</strong>, and{" "}
             <strong>4+ hours</strong> back per team. That time used to go into rebuilding the job across tools.
