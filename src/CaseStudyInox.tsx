@@ -14,7 +14,7 @@ const outcomes = [
 ];
 
 const facts = [
-  { label: "Team", value: "Product Designer · Junior Designer · Project Manager" },
+          { label: "Team", value: "Lead Product Designer · Junior Designer · Project Manager" },
   { label: "Platform", value: "Mobile App" },
   { label: "Focus", value: "UX Flow · Interaction Design · UI Design · Prototyping" },
 ];
@@ -22,7 +22,7 @@ const facts = [
 const challenges = [
   {
     title: "F&B lived outside the booking journey",
-    text: "Food ordering sat in its own category grid, disconnected from the flow users were actually in. If you didn’t think about food while booking your seat, nothing brought it back up — so the order was lost to the counter queue.",
+    text: "Food ordering sat in its own category grid, disconnected from the flow users were actually in. If you didn’t think about food while booking your seat, nothing brought it back up, so the order was lost to the counter queue.",
     ask: "Introduce a clearer way to discover, access, and redeem F&B.",
   },
   {
@@ -49,16 +49,16 @@ type Comparison = {
 const comparisons: Comparison[] = [
   {
     id: "home",
-    title: "A — Home Screen",
+    title: "A. Home Screen",
     lead: "A modern interface with a simpler experience.",
     beforeLabel: "Old version",
-    afterLabel: "New version — live prototype",
+    afterLabel: "New version, live prototype",
     before: {
       src: "/assets/cs-inox-home-before.png",
       alt: "Old PVR home screen with a Sonic 2 hero banner, location picker, and a movie carousel",
       plain: true,
     },
-    after: { embed: protoEmbed("2933-694"), title: "Redesigned INOX PVR home screen — interactive prototype" },
+    after: { embed: protoEmbed("2933-694"), title: "Redesigned INOX PVR home screen, interactive prototype" },
     changed: [
       "Cleaner typography · Consistent icons · Better hierarchy · Modern PVR/INOX visual language",
       "Fragmented F&B discovery → Dedicated F&B entry point",
@@ -66,20 +66,20 @@ const comparisons: Comparison[] = [
   },
   {
     id: "fnb",
-    title: "B — F&B Discovery",
+    title: "B. F&B Discovery",
     lead: "Offers and food items are easier to discover, with multiple ways to grab an offer.",
     beforeLabel: "Old version",
-    afterLabel: "New version — live prototype",
+    afterLabel: "New version, live prototype",
     before: {
       src: "/assets/cs-inox-fnb-before.png",
       alt: "Old Food & Beverages screen listing All, Combos, Popcorn, Beverages, and Snacks category tiles",
     },
-    after: { embed: protoEmbed("2933-6221"), title: "Redesigned INOX PVR F&B experience — interactive prototype" },
+    after: { embed: protoEmbed("2933-6221"), title: "Redesigned INOX PVR F&B experience, interactive prototype" },
     changed: ["Existing ordering flow → Simplified F&B journey"],
   },
   {
     id: "payment",
-    title: "C — Payment Screen — Bank Offers",
+    title: "C. Payment Screen, Bank Offers",
     lead: "Less cluttered payment screen with bank offers kept in context.",
     beforeLabel: "Old version",
     afterLabel: "New version",
@@ -95,17 +95,17 @@ const comparisons: Comparison[] = [
   },
   {
     id: "checkout",
-    title: "D — Movies Checkout Screen",
+    title: "D. Movies Checkout Screen",
     lead: "New “Add Food” makes F&B accessible even if users forgot during booking.",
     beforeLabel: "Old version",
-    afterLabel: "New version — live prototype",
+    afterLabel: "New version, live prototype",
     before: {
       src: "/assets/cs-inox-checkout-before.png",
       alt: "Old Booking Review screen listing the film, F&B order, apply-discount options, and reward point toggles",
     },
     after: {
       embed: protoEmbed("3146-443", "1764-955"),
-      title: "Redesigned INOX PVR movies checkout — interactive prototype",
+      title: "Redesigned INOX PVR movies checkout, interactive prototype",
     },
     changed: ["Less cluttered with offers as bank offers moved to the next screen"],
   },
@@ -233,11 +233,11 @@ function BeforeAfter({ beforeLabel, afterLabel, id, before, after }: Comparison)
     <div className="cs-ba">
       <figure>
         <p className="cs-ba-label">{beforeLabel}</p>
-        <Slot frame={before} fallback={`${id} — before`} />
+        <Slot frame={before} fallback={`${id} before`} />
       </figure>
       <figure>
         <p className="cs-ba-label">{afterLabel}</p>
-        <Slot frame={after} fallback={`${id} — after`} />
+        <Slot frame={after} fallback={`${id} after`} />
       </figure>
     </div>
   );
@@ -337,13 +337,13 @@ export function CaseStudyInox() {
         <section className="cs-block">
           <Seq>User Journey</Seq>
           <p>
-            I mapped every route into food — during booking, after booking, and from a physical counter — before drawing
+            I mapped every route into food (during booking, after booking, and from a physical counter) before drawing
             a single screen. Mapping them together is what exposed the duplicate redemption paths, and led to the single
             QR endpoint described below.
           </p>
           <div className="cs-embed">
             <iframe
-              title="INOX wireframe — user journeys"
+              title="INOX wireframe, user journeys"
               src="https://embed.figma.com/board/HV24JMtjO9t2jQN7ES80iM/Inox-Wireframe---User-Journeys?node-id=0-1&embed-host=share"
               allowFullScreen
             />
@@ -351,10 +351,10 @@ export function CaseStudyInox() {
         </section>
 
         <section className="cs-block">
-          <Seq>Style Guide — Design System</Seq>
+          <Seq>Style Guide, Design System</Seq>
           <div className="cs-embed">
             <iframe
-              title="INOX design system — style guide"
+              title="INOX design system, style guide"
               src="https://evict-tool-46901106.figma.site/"
               allowFullScreen
             />
@@ -382,7 +382,7 @@ export function CaseStudyInox() {
           <Seq n="02">What Changed? Before &amp; After</Seq>
           <p>
             The redesign wasn’t only about making the interface look better. I used the visual refresh as cover to fix
-            four specific F&amp;B touchpoints — each one is paired with the screen it replaced below.
+            four specific F&amp;B touchpoints. Each one is paired with the screen it replaced below.
           </p>
 
           {comparisons.map((item) => (
@@ -406,7 +406,7 @@ export function CaseStudyInox() {
             {decisions.map((item) => (
               <article key={item.n}>
                 <h3>
-                  {item.n} — {item.title}
+                  {item.n}. {item.title}
                 </h3>
                 <p>
                   <strong>Decision:</strong> {item.decision}

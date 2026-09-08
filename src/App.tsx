@@ -9,10 +9,10 @@ import { CaseStudyAcrossfit } from "./CaseStudyAcrossfit";
 const works = [
   {
     id: "aha-saas",
-    kicker: "IOT Enterprise · SaaS",
+    kicker: "Internal SaaS · Smart Home Operations",
     title: "AHA SaaS System",
-    body: "Cut operational overhead by ~50%, saving 4+ hours/week, by transforming manual workflows into a structured, role-based SaaS system.",
-    meta: "| Internal Financial & Operations tool · Sr. Product Designer",
+    body: "The internal tool AHA’s teams use to run a smart-home job, from first lead to handover. Sales send a proposal PDF on WhatsApp. Install starts only after payment. About 50% less operational work, and 4+ hours saved per team.",
+    meta: "| Internal operations SaaS · Sr. Product Designer",
     tags: [
       "User Interviews",
       "Whiteboard Sessions",
@@ -25,7 +25,7 @@ const works = [
     stats: [
       { value: "50%", label: "Faster operations" },
       { value: "4+", label: "Hours saved per team" },
-      { value: "5", label: "User roles" },
+      { value: "6", label: "Role dashboards" },
     ],
     visual: "saas" as const,
     href: "#aha-saas",
@@ -34,7 +34,7 @@ const works = [
     id: "maruti",
     kicker: "Entertainment Platform · Mobile App",
     title: "INOX PVR Movie Booking App",
-    body: "Redesigned the cinema experience to simplify movie booking and introduce a clearer F&B journey — making it easier for users to discover offers, order food, and redeem promotions during their cinema visit.",
+    body: "Redesigned the cinema experience to simplify movie booking and introduce a clearer F&B journey, making it easier for users to discover offers, order food, and redeem promotions during their cinema visit.",
     meta: "| Cinema Platform · Product Designer · UX/UI Design",
     tags: ["UX Redesign", "F&B Experience", "Offer Discovery", "QR Redemption"],
     cta: "View Case Study",
@@ -50,7 +50,7 @@ const works = [
     id: "aha-landing",
     kicker: "Website · Growth Design",
     title: "AHA Smart Home Website Revamp",
-    body: "Built and Optimized a High-Performing Website Pages, driving SEO-led traffic and Contributing to ₹1Cr+ in Revenue (through Leads)",
+    body: "Rebuilt AHA’s public website (the homeowner-facing site, not the internal SaaS) so visitors could understand the offering, trust the brand, and enquire. SEO-led traffic contributed to ₹1Cr+ in revenue from leads.",
     meta: "| Brand Website · Sr. UI/UX Designer",
     tags: [
       "Conversion Design",
@@ -71,13 +71,13 @@ const works = [
     id: "prescrip",
     kicker: "iOS & Android App · Healthcare",
     title: "Prescrip - App for Doctors",
-    body: "Redesigned and optimized the Prescrip healthcare platform to improve doctor onboarding, streamline user workflows, and drive higher engagement, conversions, and operational efficiency.",
+    body: "An app for doctors to run a clinic from their phone: appointments, digital prescriptions, and patient records, instead of paper, WhatsApp, and handwritten scripts.",
     meta: "| Healthcare Platform · Sr. UI/UX Designer",
     tags: [
-      "Conversion Design",
-      "Information Architecture",
-      "Design System",
-      "SEO Optimization",
+      "Doctor Interviews",
+      "Practice Workflows",
+      "Mobile UX",
+      "Healthcare UX",
     ],
     cta: "View Case Study",
     href: "#prescrip-case",
@@ -92,8 +92,8 @@ const works = [
     id: "epix",
     kicker: "Entertainment Platform · Web & Mobile",
     title: "Epix Cinemas",
-    body: "Designed Epix Cinemas’ first digital booking experience — a booking bar on home, VIP / Kids / XL filters beside Now Showing, and only seats and pay after Book Now — for a cinema that previously had no website.",
-    meta: "| Cinema Platform · Sr UI UX Designer · 2025–Present · Bahrain",
+    body: "Designed Epix Cinemas’ first digital booking experience: a booking bar on home, VIP / Kids / XL filters beside Now Showing, and only seats and pay after Book Now, for a cinema that previously had no website.",
+    meta: "| Cinema Platform · Sr UI UX Designer · 2025 to Present · Bahrain",
     tags: [
       "Journey Mapping",
       "UX Strategy",
@@ -113,7 +113,7 @@ const works = [
     id: "acrossfit",
     kicker: "Fitness Management Platform · iOS & Android",
     title: "Acrossfit Kaali",
-    body: "Designed a fitness and workout management platform focused on helping users track workouts, monitor performance, and improve engagement through structured fitness experiences.",
+    body: "Designed the daily companion for CrossFit Kaali: today’s WOD on home, log the score after class, see PRs and a leaderboard, instead of notebooks and WhatsApp.",
     meta: "| Fitness Management App · Product Designer",
     tags: ["Design System", "Fitness App", "Mobile UX", "User Engagement"],
     cta: "View Case Study",
@@ -316,7 +316,7 @@ function Home() {
           <img
             className="hero-shot"
             src="/assets/hero-visual.png?v=3"
-            alt="INOX PVR Movie Booking App — view project"
+            alt="INOX PVR Movie Booking App, view project"
           />
         </a>
       </section>
@@ -394,17 +394,17 @@ function Home() {
         <div className="jobs">
           <div className="job" data-reveal>
             <h3>Sr Product Designer</h3>
-            <time>Jun 2024 – Present</time>
+            <time>Jun 2024 to Present</time>
             <div className="company">AHA! Smart Homes</div>
           </div>
           <div className="job" data-reveal>
             <h3>Senior UI/UX Designer</h3>
-            <time>May 2022 – Jun 2024</time>
+            <time>May 2022 to Jun 2024</time>
             <div className="company">Aurus IT Solutions</div>
           </div>
           <div className="job" data-reveal>
             <h3>Junior UI/UX Designer</h3>
-            <time>Apr 2020 – May 2022</time>
+            <time>Apr 2020 to May 2022</time>
             <div className="company">Aurus IT Solutions</div>
           </div>
         </div>
@@ -437,7 +437,7 @@ function Home() {
               </p>
               <cite>
                 <strong>Chetan Mukhne</strong>
-                <em>Ecommerce — Product Head @Vijay Sales</em>
+                <em>Ecommerce, Product Head @Vijay Sales</em>
               </cite>
             </blockquote>
             <blockquote>
@@ -469,7 +469,7 @@ function About() {
         entertainment, and enterprise work for teams including Maruti Suzuki, Vijay Sales, and Prescrip.
       </p>
       <p>
-        My focus is product strategy, interaction design, system design, UX thinking, and growth design — with a bias
+        My focus is product strategy, interaction design, system design, UX thinking, and growth design, with a bias
         toward research, structured workflows, and measurable outcomes.
       </p>
     </main>

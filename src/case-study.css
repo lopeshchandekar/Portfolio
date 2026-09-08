@@ -519,6 +519,26 @@
   white-space: nowrap;
 }
 
+.cs-type {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cs-type-gen {
+  background: #d7efb8;
+  color: #2f5a18;
+}
+
+.cs-type-eval {
+  background: #4d4afc;
+  color: #fff;
+}
+
 .cs-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -754,7 +774,7 @@
 }
 
 .cs-qs li::before {
-  content: "— ";
+  content: "- ";
   color: #4d4afc;
 }
 
@@ -1400,6 +1420,105 @@
   font-style: normal;
 }
 
+.cs-hero-lede {
+  margin: 0;
+  max-width: 36ch;
+  text-align: center;
+  color: #fff;
+  font-family: var(--sans);
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 500;
+  line-height: 1.45;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.45);
+}
+
+.cs-role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.cs-role-card-job {
+  height: auto;
+  min-height: 0;
+  align-items: flex-start;
+  padding: 14px 16px;
+}
+
+.cs-role-card-job span {
+  display: block;
+  font-weight: 600;
+}
+
+.cs-role-card-job small {
+  display: block;
+  margin-top: 4px;
+  color: var(--grey-20);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.cs-aha-saas .cs-hero-copy {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.12) 55%);
+}
+
+.cs-aha-saas .cs-hero h1 {
+  max-width: 20ch;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+}
+
+.cs-aha-saas .cs-facts {
+  margin-top: 28px;
+  margin-bottom: 40px;
+}
+
+.cs-aha-saas .cs-block > p + p,
+.cs-aha-saas .cs-goals + p {
+  margin-top: 28px;
+}
+
+.cs-aha-saas .cs-role {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cs-aha-saas .cs-goals + .cs-label {
+  margin-top: 40px;
+  color: #ff3a39;
+}
+
+.cs-aha-saas .cs-table {
+  margin-top: 16px;
+}
+
+.cs-aha-saas .cs-aha-challenge {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 8px;
+}
+
+.cs-aha-saas .cs-aha-challenge p {
+  margin: 0;
+}
+
+.cs-aha-saas .cs-aha-challenge strong {
+  color: #4d4afc;
+  font-weight: 700;
+}
+
+.cs-aha-saas .cs-table td:first-child {
+  width: 170px;
+  color: inherit;
+}
+
 .cs-epix .cs-hero-copy {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.12) 55%);
 }
@@ -1627,7 +1746,8 @@
   }
 
   .cs-facts,
-  .cs-ba {
+  .cs-ba,
+  .cs-role-grid {
     grid-template-columns: 1fr;
   }
 

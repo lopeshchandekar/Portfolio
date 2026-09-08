@@ -339,10 +339,10 @@ export function CaseStudyPrescrip() {
       <section className="cs-hero">
         <img
           src="/assets/cs-prescrip-hero.png"
-          alt="Prescrip — a doctor using the app beside a Today’s Appointments panel"
+          alt="Prescrip, a doctor using the app beside a Today’s Appointments panel"
         />
         <div className="cs-hero-copy">
-          <h1>Prescrip — App for Doctors</h1>
+          <h1>Prescrip, App for Doctors</h1>
         </div>
       </section>
 
@@ -368,9 +368,8 @@ export function CaseStudyPrescrip() {
         <section className="cs-block">
           <Seq>Overview</Seq>
           <p>
-            Prescrip is a mobile app that lets doctors run their practice from a phone — managing appointments, patient
-            records, and prescriptions in one place, and simplifying healthcare appointment booking for the patients on
-            the other side of it.
+            Prescrip is a mobile app for doctors: appointments, patient records, and prescriptions on a phone, so a
+            clinic is not run from paper, WhatsApp, and handwritten scripts.
           </p>
           <dl className="cs-facts">
             {facts.map((item) => (
@@ -391,7 +390,7 @@ export function CaseStudyPrescrip() {
           <p>
             The landscape of healthcare is changing rapidly, with a growing emphasis on digital transformation and
             telemedicine. For practicing doctors, especially in fast-paced clinical settings, managing patient records,
-            appointments, and prescriptions efficiently is critical — not only for operational effectiveness but for
+            appointments, and prescriptions efficiently is critical, not only for operational effectiveness but for
             improving patient care and safety.
           </p>
           <p>
@@ -413,7 +412,7 @@ export function CaseStudyPrescrip() {
           <p>
             Empower doctors with a digital tool that streamlines patient management, appointment scheduling, and
             prescription generation, all in one place. The goal was to reduce administrative burden, minimize manual
-            errors, improve access to patient data, and enable remote care — while ensuring data security and a gentle
+            errors, improve access to patient data, and enable remote care, while ensuring data security and a gentle
             learning curve for medical professionals.
           </p>
         </section>
@@ -436,7 +435,7 @@ export function CaseStudyPrescrip() {
             {workstreams.map((item) => (
               <article key={item.n}>
                 <h3>
-                  {item.n} — {item.title}
+                  {item.n}. {item.title}
                 </h3>
                 <List items={item.steps} className="cs-substeps" />
               </article>
@@ -447,7 +446,7 @@ export function CaseStudyPrescrip() {
         <section className="cs-block">
           <Seq n="06">Design Process</Seq>
           <p>
-            The project ran over five weeks with a structured double-diamond approach — diverging to understand users
+            The project ran over five weeks with a structured double-diamond approach, diverging to understand users
             deeply before converging on a validated, testable solution.
           </p>
           <div className="cs-goals cs-goals-4">
@@ -463,7 +462,7 @@ export function CaseStudyPrescrip() {
         <section className="cs-block">
           <Seq n="07">User Research</Seq>
           <p>
-            To better understand real clinical workflows, I ran 1:1 interviews with 15 doctors — general physicians,
+            To better understand real clinical workflows, I ran 1:1 interviews with 15 doctors: general physicians,
             specialists, and clinic owners. The goal was to learn what they struggle with while managing appointments,
             writing prescriptions, and handling consultations. Those conversations pointed to the same few
             opportunities: simplify workflows, cut repetitive tasks, and give time back to the consultation itself.
@@ -473,7 +472,7 @@ export function CaseStudyPrescrip() {
             {quotes.map((item) => (
               <blockquote key={item.who}>
                 <p>{item.quote}</p>
-                <cite>— {item.who}</cite>
+                <cite>{item.who}</cite>
               </blockquote>
             ))}
           </div>
@@ -485,7 +484,7 @@ export function CaseStudyPrescrip() {
             {insights.map((item) => (
               <article key={item.n}>
                 <h3>
-                  {item.n} — {item.title}
+                  {item.n}. {item.title}
                 </h3>
                 <p>{item.text}</p>
               </article>
@@ -539,7 +538,7 @@ export function CaseStudyPrescrip() {
           <Seq n="10">Design &amp; Architecture</Seq>
           <p className="cs-sub">Information Architecture</p>
           <p>
-            Built around doctors’ core workflows — appointments, prescriptions, patient records — keeping navigation
+            Built around doctors’ core workflows (appointments, prescriptions, patient records), keeping navigation
             simple and task-focused. Everything routes through a single dashboard rather than nesting features in
             separate corners of the app.
           </p>
@@ -610,7 +609,7 @@ export function CaseStudyPrescrip() {
             {learnings.map((item) => (
               <article key={item.n}>
                 <h3>
-                  {item.n} — {item.title}
+                  {item.n}. {item.title}
                 </h3>
                 <p>{item.text}</p>
               </article>

@@ -1,92 +1,191 @@
 import { useEffect } from "react";
 import "./case-study.css";
 
-const preSteps = [
-  { step: "STEP 1", icon: "lead", lead: "Lead received → Manually added to CRM", note: "Duplicate entries, inconsistent data across tools" },
-  { step: "STEP 2", icon: "sheet", lead: "Quotation created in separate spreadsheets", note: "No standard format, version confusion" },
-  { step: "STEP 3", icon: "share", lead: "Proposal shared via WhatsApp / Email manually", note: "No tracking, no visibility if client viewed" },
-  { step: "STEP 4", icon: "plan", lead: "Device planning done on paper / separate drawings", note: "No clarity on actual device placement" },
-  { step: "STEP 5", icon: "phone", lead: "Engineer receives instructions via calls/messages", note: "Miscommunication between PM & site team" },
-  { step: "STEP 6", icon: "track", lead: "Execution tracked manually (calls / follow-ups)", note: "No visibility into project progress" },
-  { step: "STEP 7", icon: "pay", lead: "Payments tracked in separate sheets/accounts tools", note: "No real-time tracking of received vs pending" },
-  { step: "STEP 8", icon: "handover", lead: "Final handover communicated manually via call", note: "Inconsistent experience, no structured closure" },
+const proto =
+  "https://www.figma.com/proto/iPXYsUGPaQrk3tMgygtu8U/AHA-Project-Management-APP?node-id=4538-7525&t=nPHilSFSrehJrV9z-0&scaling=min-zoom&content-scaling=fixed&page-id=3063%3A5293&starting-point-node-id=4538%3A7525&hide-ui=1";
+
+const facts = [
+  { label: "Client", value: "AHA Smart Homes" },
+  { label: "Product", value: "Internal operations SaaS, first version" },
+  { label: "Platform", value: "Desktop + tablet" },
+  { label: "Team", value: "Sr. Product Designer · Junior Designer · Product Manager · Sr. Developer" },
 ];
 
-const postSteps = [
-  { step: "STEP 1", icon: "system", lead: "Lead received → Directly into system", note: "Structured data, no duplication" },
-  { step: "STEP 2", icon: "doc", lead: "Proposal generated inside platform", note: "Standardized, version-controlled" },
-  { step: "STEP 3", icon: "eye", lead: "Proposal auto-shared with tracking", note: "Know when client views" },
-  { step: "STEP 4", icon: "plan", lead: "HA Diagram (Floor Plan mapping)", note: "Accurate device placement" },
-  { step: "STEP 5", icon: "dash", lead: "Execution managed via shared dashboard", note: "Engineers + PM aligned" },
-  { step: "STEP 6", icon: "live", lead: "Real-time project tracking", note: "No manual follow-ups" },
-  { step: "STEP 7", icon: "pay", lead: "Integrated payment tracking", note: "Clear received vs pending" },
-  { step: "STEP 8", icon: "check", lead: "Automated handover communication", note: "Professional, consistent customer experience" },
+const outcomes = [
+  { value: "50%", label: "Less operational work" },
+  { value: "4+", label: "Hours saved per team" },
+  { value: "6", label: "Role dashboards" },
+];
+
+const preSteps = [
+  { step: "STEP 1", icon: "lead", lead: "Lead from Meta ads → call → demo", note: "Customer details were in CRM, WhatsApp, and a notebook" },
+  { step: "STEP 2", icon: "sheet", lead: "Quotation made in a separate Excel", note: "Each person used a different format. Many files for the same quote" },
+  { step: "STEP 3", icon: "share", lead: "Proposal PDF sent on WhatsApp from that Excel", note: "Nobody knew which PDF the client had" },
+  { step: "STEP 4", icon: "plan", lead: "Device plan drawn on paper", note: "Sales, site team, and store did not agree on what was sold" },
+  { step: "STEP 5", icon: "phone", lead: "Engineer got the brief on calls and WhatsApp", note: "At the house, the plan did not match" },
+  { step: "STEP 6", icon: "track", lead: "Work tracked by follow-up calls and messages", note: "PM checked the WhatsApp group to know the status" },
+  { step: "STEP 7", icon: "pay", lead: "Money tracked in a separate accounts Excel", note: "Install still started when payment was pending" },
+  { step: "STEP 8", icon: "handover", lead: "Handover done on a call. Job never marked closed", note: "No one place that said deal won" },
+];
+
+const userRoles = [
+  {
+    name: "Consultant",
+    color: "#4d4afc",
+    people: 2 as const,
+    job: "Sales. Runs the demo, places devices on the HA diagram, prices the job, generates the PDF, sends it on WhatsApp.",
+  },
+  {
+    name: "Project Manager",
+    color: "#7b5cff",
+    people: 2 as const,
+    job: "Opens the client WhatsApp group, assigns daily tasks in the SaaS, watches what is still pending.",
+  },
+  {
+    name: "Engineer",
+    color: "#1a7a4c",
+    people: 2 as const,
+    job: "Site visit first, then install on tablet or desktop. Marks work done against the same job.",
+  },
+  {
+    name: "Procurement",
+    color: "#2bb8b3",
+    people: 2 as const,
+    job: "Inventory for this job, including third-party devices the site visit added.",
+  },
+  {
+    name: "Accountant",
+    color: "#e0a800",
+    people: 1 as const,
+    job: "Received vs pending on that job. Chases by email, the WhatsApp group, or a call. Unpaid parts do not get installed.",
+  },
+  {
+    name: "Management",
+    color: "#ff3a39",
+    people: 1 as const,
+    job: "Sees the portfolio. Sits on the same WhatsApp group so the client’s picture matches the office.",
+  },
 ];
 
 const discoveryGoals = [
   {
     id: "G1",
-    text: "Understand the end-to-end smart home project lifecycle across all stages from lead generation and proposal to execution, payment, and final handover.",
+    text: "Understand how a smart home job runs today: lead, proposal, install, payment, and handover.",
   },
   {
     id: "G2",
-    text: "Identify gaps and inefficiencies caused by spreadsheets (multiple excel, manual processes, and communication channels)",
+    text: "Find problems caused by Excel files and WhatsApp.",
   },
   {
     id: "G3",
-    text: "Map role-based workflows and pain points across engineers, project managers, accounts, and admins.",
+    text: "See how each role works, and where they get stuck: consultant, engineer, PM, accounts, management.",
   },
   {
     id: "G4",
-    text: "Define requirements for a unified platform that reduces manual coordination and improves cross-team collaboration.",
+    text: "Decide what one tool must do, so people stop running the job on Excel and WhatsApp.",
   },
   {
     id: "G5",
-    text: "Validate key workflows (proposal creation, HA diagram mapping, execution tracking, and payment flow) through iterative feedback before development.",
+    text: "Test the main flows with the team before development: proposal, HA diagram, install tracking, and payment.",
   },
 ];
 
-const lifecycle = [
-  { n: "01", emoji: "📐", title: "Plan", copy: "Electrical plan arrives", img: "/assets/cs-aha-life-1.png", alt: "Upload electrical layout plan in Proposal Management" },
-  { n: "02", emoji: "💡", title: "Propose", copy: "Consultant creates proposal / SO", img: "/assets/cs-aha-life-2.png", alt: "Sales Order Management HA diagram with devices on a floor plan" },
-  { n: "03", emoji: "📦", title: "Prepare", copy: "Procurement checks availability", img: "/assets/cs-aha-life-3.png", alt: "Device Manager add-devices form with pricing" },
-  { n: "04", emoji: "📋", title: "Plan Installation", copy: "Project Manager creates and assigns tasks", img: "/assets/cs-aha-life-4.png", alt: "Task List weekly calendar for installation planning" },
-  { n: "05", emoji: "🛠️", title: "Task Update Status", copy: "Engineers completes work on site and update on the app", img: "/assets/cs-aha-life-5.png", alt: "Customer Project Plan with task status updates" },
-  { n: "06", emoji: "💳", title: "Payment Tracking", copy: "Account Team tracks payment", img: "/assets/cs-aha-life-6.png", alt: "Project Management overview of project progress" },
-  { n: "07", emoji: "📊", title: "Monitor", copy: "Management sees project and team progress", img: "/assets/cs-aha-life-7.png", alt: "Payment Summary with milestone status" },
+const research = [
+  ["To understand", "Is the same job split across Excel, CRM, and WhatsApp?"],
+  ["To understand", "Where does the job break, from proposal to handover?"],
+  ["To understand", "How do sales, site, and accounts share information today?"],
+  ["To understand", "What causes delay, mistakes, or rework on a job?"],
+  ["To check", "Where do teams mix up information?"],
+  ["To check", "How is received vs pending money tracked today?"],
+  ["To check", "Can people finish a full job inside the new tool, without going back to Excel?"],
+  ["To check", "Does the new tool make it easier to see the job and work together?"],
 ];
 
-const stats = [
-  { value: "50%", label: "Faster operations" },
-  { value: "4+ hours", label: "Saved per team (approx)" },
-  { value: "Real Time", label: "Visibility" },
-  { value: "↑Efficiency", label: "Execution of projects" },
+const lifecycle = [
+  {
+    n: "01",
+    emoji: "👤",
+    title: "Customer on file",
+    copy: "Lead from Meta ads, then a call, then a demo. After that the customer is saved on the job with the electrical plan, instead of in three places.",
+    img: "/assets/cs-aha-life-1.png",
+    alt: "Upload electrical layout plan in Proposal Management",
+  },
+  {
+    n: "02",
+    emoji: "📐",
+    title: "HA diagram: devices and price",
+    copy: "The consultant places devices on the floor plan, estimates the price, and generates the PDF that goes out on WhatsApp.",
+    img: "/assets/cs-aha-life-2.png",
+    alt: "Sales Order Management HA diagram with devices on a floor plan",
+  },
+  {
+    n: "03",
+    emoji: "📦",
+    title: "Inventory",
+    copy: "Procurement handles stock for this job, including anything the site visit added.",
+    img: "/assets/cs-aha-life-3.png",
+    alt: "Device Manager add-devices form with pricing",
+  },
+  {
+    n: "04",
+    emoji: "🏠",
+    title: "Site visit, then tasks",
+    copy: "Engineer and PM check each point on site. Then the PM assigns daily work in the SaaS. The client still follows the WhatsApp group.",
+    img: "/assets/cs-aha-life-4.png",
+    alt: "Task List weekly calendar for installation planning",
+  },
+  {
+    n: "05",
+    emoji: "🛠️",
+    title: "Install on tablet or desktop",
+    copy: "Engineers mark progress on the same job. If the accountant shows amount pending, some devices are not installed.",
+    img: "/assets/cs-aha-life-5.png",
+    alt: "Customer Project Plan with task status updates",
+  },
+  {
+    n: "06",
+    emoji: "💳",
+    title: "Money on this job",
+    copy: "Accounts sees received vs pending here, then emails, posts on the WhatsApp group, or calls. Full payment unlocks handover.",
+    img: "/assets/cs-aha-life-7.png",
+    alt: "Payment Summary with milestone status",
+  },
+  {
+    n: "07",
+    emoji: "🏁",
+    title: "Closed / deal won",
+    copy: "Management watches the portfolio. After handover, the job is marked closed or deal won. That is the company’s close, not an automated client email.",
+    img: "/assets/cs-aha-life-6.png",
+    alt: "Project Management overview of project progress",
+  },
 ];
 
 const impacts = [
-  { icon: "cycle", title: "1. End-to-End Lifecycle", copy: "From proposal to handover in one seamless flow" },
-  { icon: "bolt", title: "2. 50%+ Efficiency Gain", copy: "Reduction in manual coordination and tool switching" },
-  { icon: "eye", title: "3. Real-time Visibility", copy: "Track projects, payments, and execution live" },
-  { icon: "target", title: "4. Higher Accuracy", copy: "Multiple design iterations for web and mobile views." },
-  { icon: "send", title: "5. Improved Delivery Experience", copy: "Through timely updates and professional communication" },
-];
-
-const research = [
-  ["Generative", "How fragmented is the current project lifecycle across spreadsheets and teams?"],
-  ["Generative", "What are the critical breakdown points from proposal to project handover?"],
-  ["Generative", "How do different roles collaborate and share information today?"],
-  ["Generative", "What causes delays, errors, or rework in smart home project execution?"],
-  ["Evaluative", "Where do errors or miscommunication occur between teams?"],
-  ["Evaluative", "How is financial tracking (received vs pending) currently managed?"],
-  ["Evaluative", "Can users efficiently complete end-to-end workflows within the SaaS platform?"],
-];
-
-const userRoles = [
-  { name: "Consultant", color: "#4d4afc", people: 2 },
-  { name: "Project Managers", color: "#7b5cff", people: 2 },
-  { name: "Accounts", color: "#e0a800", people: 1 },
-  { name: "Management", color: "#ff3a39", people: 1 },
-  { name: "Procurement", color: "#2bb8b3", people: 2 },
+  {
+    icon: "cycle",
+    title: "One job, six roles",
+    copy: "Quote, floor plan, site, install, stock, and money sit on the same customer. Not five tools.",
+  },
+  {
+    icon: "bolt",
+    title: "50% less operational work",
+    copy: "Less rebuilding the job from Excel, CRM, and chat. Teams got 4+ hours back.",
+  },
+  {
+    icon: "eye",
+    title: "A home for each role",
+    copy: "The hard design problem: six dashboards so a consultant and an engineer are not staring at the same screen.",
+  },
+  {
+    icon: "target",
+    title: "Install follows the money",
+    copy: "Accountant pending is a product rule. Unpaid parts stay off the wall.",
+  },
+  {
+    icon: "send",
+    title: "Closed in the tool",
+    copy: "Handover still happens with people. The job is then marked closed / deal won on the same record.",
+  },
 ];
 
 function JourneyIcon({ name }: { name: string }) {
@@ -145,50 +244,6 @@ function JourneyIcon({ name }: { name: string }) {
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M8 14l3 3 8-8" {...stroke} />
           <circle cx="12" cy="12" r="9" {...stroke} />
-        </svg>
-      );
-    case "system":
-      return (
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="5" width="18" height="12" rx="2" {...stroke} />
-          <path d="M8 21h8M12 17v4" {...stroke} />
-        </svg>
-      );
-    case "doc":
-      return (
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 3h8l5 5v13H7z" {...stroke} />
-          <path d="M15 3v5h5M9 14l2 2 4-4" {...stroke} />
-        </svg>
-      );
-    case "eye":
-      return (
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" {...stroke} />
-          <circle cx="12" cy="12" r="3" {...stroke} />
-        </svg>
-      );
-    case "dash":
-      return (
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="8" height="8" rx="1" {...stroke} />
-          <rect x="13" y="3" width="8" height="5" rx="1" {...stroke} />
-          <rect x="13" y="10" width="8" height="11" rx="1" {...stroke} />
-          <rect x="3" y="13" width="8" height="8" rx="1" {...stroke} />
-        </svg>
-      );
-    case "live":
-      return (
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 14l4-4 3 3 5-6 4 4" {...stroke} />
-          <path d="M4 19h16" {...stroke} />
-        </svg>
-      );
-    case "check":
-      return (
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="9" {...stroke} />
-          <path d="M8 12l2.5 2.5L16 9" {...stroke} />
         </svg>
       );
     default:
@@ -274,11 +329,12 @@ export function CaseStudyAhaSaas() {
   }, []);
 
   return (
-    <main className="case-study cs-paneled">
+    <main className="case-study cs-paneled cs-aha-saas">
       <section className="cs-hero">
         <img src="/assets/cs-aha-hero.jpg" alt="" />
         <div className="cs-hero-copy">
-          <h1>AHA SaaS : One System. Every Step. Zero Gaps</h1>
+          <h1>AHA SaaS: One System. Every Step. Zero Gaps</h1>
+          <p className="cs-hero-lede">Internal operations platform for AHA’s own teams. Not the public website.</p>
         </div>
       </section>
 
@@ -287,12 +343,7 @@ export function CaseStudyAhaSaas() {
           <a className="cs-back" href="#work">
             ← Back to selected works
           </a>
-          <a
-            className="offset-btn cs-proto"
-            href="https://www.figma.com/proto/iPXYsUGPaQrk3tMgygtu8U/AHA-Project-Management-APP?node-id=4538-7525&t=nPHilSFSrehJrV9z-0&scaling=min-zoom&content-scaling=fixed&page-id=3063%3A5293&starting-point-node-id=4538%3A7525&hide-ui=1"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a className="offset-btn cs-proto" href={proto} target="_blank" rel="noreferrer">
             Prototype Link
             <span className="offset-btn-icon">
               <img src="/assets/icon-arrow-ne.svg" alt="" width={12} height={12} />
@@ -300,40 +351,99 @@ export function CaseStudyAhaSaas() {
           </a>
         </div>
 
-        <section className="cs-block">
-          <Seq n="01">What AHA Actually is?</Seq>
-          <p>
-            AHA isn’t simply selling smart switches or individual smart-home gadgets. The company describes itself as a
-            full-stack smart-home technology company that designs its own products, develops its own software, and
-            engineers complete smart-home systems.
-          </p>
-          <img
-            className="cs-figure"
-            src="/assets/cs-aha-what.png?v=3"
-            alt="AHA Sales Order Management: mapping devices onto a floor plan"
-          />
+        <section className="cs-block cs-outcomes">
+          <div className="cs-stats cs-stats-3">
+            {outcomes.map((item) => (
+              <article key={item.label}>
+                <p>{item.value}</p>
+                <span>{item.label}</span>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="cs-block">
-          <Seq n="02">The Challenge</Seq>
-          <ul className="cs-points">
+          <Seq n="00">Overview</Seq>
+          <dl className="cs-facts">
+            {facts.map((item) => (
+              <div key={item.label}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p>
+            AHA designs smart homes: hardware, software, and installation. This case study is the{" "}
+            <strong>internal SaaS</strong> their teams use to run a job. Homeowners never log in. The public website is
+            a separate case study.
+          </p>
+          <p>We built the first version from scratch.</p>
+          <div className="cs-role">
+            <h3>My Role</h3>
+            <p className="cs-role-title">Sr. Product Designer</p>
+            <p>
+              I led research, flows, role dashboards, the HA diagram, and the prototype. The hard problem was six
+              dashboards for six roles on one job.
+            </p>
+          </div>
+        </section>
+
+        <section className="cs-block">
+          <Seq n="01">How a home actually gets automated</Seq>
+          <p>
+            A job is one customer moving through sales, site, stock, money, and close. WhatsApp is how the household
+            sees it. The SaaS is how AHA trusts it.
+          </p>
+          <ol className="cs-points">
             <li>
+              <strong>Lead → demo.</strong> Meta ads, consultant calls, customer comes in for a demo. That person is saved
+              in the SaaS.
+            </li>
+            <li>
+              <strong>Proposal.</strong> Consultant builds the HA diagram (devices + price). The SaaS generates a PDF.
+              Sales sends it on WhatsApp. Clients already track chat.
+            </li>
+            <li>
+              <strong>Yes → site.</strong> PM and engineer walk the house: where each device can go, and whether
+              third-party hardware is needed. The PM opens a WhatsApp group (management through engineers, plus the
+              client).
+            </li>
+            <li>
+              <strong>Install follows money.</strong> Engineer installs on tablet or desktop against what the accountant
+              can see. Pending amount → some parts stay off. Full payment → handover → marked closed / deal won.
+              Procurement stays on inventory the whole way.
+            </li>
+          </ol>
+          <img
+            className="cs-figure"
+            src="/assets/cs-aha-what.png?v=4"
+            alt="AHA Sales Order Management: mapping devices onto a floor plan"
+          />
+          <p className="cs-caption">The HA diagram is how sales prices the job. It is not a pretty extra on the proposal.</p>
+        </section>
+
+        <section className="cs-block">
+          <Seq n="02">The Challenge 🔍</Seq>
+          <div className="cs-aha-challenge">
+            <p>
               <strong>Multiple Tools:</strong> Different teams relied on separate spreadsheets and CRM, leading to
-              duplicated data, inconsistent updates, and no unified view of project status across departments.
-            </li>
-            <li>
+              duplicated data, inconsistent updates, and no unified view of project status across departments. Too much
+              manual work.
+            </p>
+            <p>
               <strong>Miscommunication:</strong> Lack of a shared system forced teams to rely on calls, WhatsApp, and
-              emails — resulting in unclear instructions, missed updates, and frequent coordination gaps.
-            </li>
-            <li>
+              emails, resulting in unclear instructions, missed updates, and frequent coordination gaps between site
+              and office teams.
+            </p>
+            <p>
               <strong>Zero Visibility:</strong> With no centralized tracking, stakeholders had no real-time insight into
-              project progress, payment status, or execution stages.
-            </li>
-          </ul>
+              project progress, payment status, or execution stages, making decision-making slow and reactive.
+            </p>
+          </div>
         </section>
 
         <section className="cs-journey">
-          <p className="cs-label">The real project execution journey (pre-AHA)</p>
+          <p className="cs-label">The job, before the SaaS</p>
           <ol className="cs-steps">
             {preSteps.map((item) => (
               <li key={item.step}>
@@ -351,7 +461,7 @@ export function CaseStudyAhaSaas() {
           <div className="cs-callout problem">
             <p>The problem</p>
             <div>
-              {["No single source of truth", "High dependency on manual coordination", "Data inconsistency across teams", "Poor customer communication"].map(
+              {["No one place for the job", "Proposal PDF made outside the tool", "Site visit not in the plan", "Install even if payment pending"].map(
                 (item) => (
                   <span key={item}>{item}</span>
                 ),
@@ -361,71 +471,29 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="03">The Solution</Seq>
-          <ul className="cs-points">
-            <li>
-              <strong>Single, Unified Platform:</strong> A centralized system that connects every stage from proposal to
-              handover — eliminating fragmented spreadsheets and creating a single source of truth.
-            </li>
-            <li>
-              <strong>Real Time Visibility:</strong> Live tracking of project progress, payments, and execution stages
-              giving teams instant clarity without manual follow-ups.
-            </li>
-            <li>
-              <strong>Role-Based Control:</strong> Tailored access and workflows for each role ensuring engineers,
-              project managers, and accounts teams interact only with what matters to them.
-            </li>
-          </ul>
-        </section>
-
-        <section className="cs-journey">
-          <p className="cs-label">The AHA unified workflow (post-AHA)</p>
-          <ol className="cs-steps">
-            {postSteps.map((item) => (
-              <li key={item.step}>
-                <div className="cs-step-mark solution">
-                  <JourneyIcon name={item.icon} />
-                  <span>{item.step}</span>
-                </div>
-                <p>
-                  {item.lead}
-                  <em>{item.note}</em>
-                </p>
-              </li>
-            ))}
-          </ol>
-          <div className="cs-callout solution">
-            <p>The solution</p>
-            <div>
-              {["Single source of truth", "Automated Workflows", "Real-time Visibility", "Accurate Data", "Better Customer Experience"].map(
-                (item) => (
-                  <span key={item}>{item}</span>
-                ),
-              )}
-            </div>
-          </div>
-        </section>
-
-        <section className="cs-block cs-roles-block">
-          <div className="cs-roles-row">
-            <Seq n="04">User Roles:</Seq>
-            <div className="cs-role-cards">
-              {userRoles.map((role) => (
-                <article className="cs-role-card" key={role.name}>
-                  <PeopleIcon color={role.color} people={role.people as 1 | 2} />
-                  <span>{role.name}</span>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="cs-block">
-          <Seq n="05">Discovery &amp; Research</Seq>
+          <Seq n="03">Who opens what</Seq>
           <p>
-            Welcome to Phase 1 of the design process! This is where ideas take shape, inspirations are gathered and
-            initial concepts are brought to life. As a designer, you are in the early stages of creating a vision for
-            the website.
+            Six internal roles, six home dashboards. Nobody outside AHA logs in.
+          </p>
+          <div className="cs-role-grid">
+            {userRoles.map((role) => (
+              <article className="cs-role-card cs-role-card-job" key={role.name}>
+                <PeopleIcon color={role.color} people={role.people} />
+                <div>
+                  <span>{role.name}</span>
+                  <small>{role.job}</small>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="cs-block">
+          <Seq n="04">Discovery &amp; Research</Seq>
+          <p>
+            I sat with the people who already run these jobs: consultants, PMs, engineers, procurement, accounts, and
+            management. Also with the product manager and senior developer. Interviews and personas. Then we wrote what
+            we needed to know before drawing screens.
           </p>
           <div className="cs-goals">
             {discoveryGoals.map((goal) => (
@@ -435,14 +503,36 @@ export function CaseStudyAhaSaas() {
               </article>
             ))}
           </div>
+          <p className="cs-label">Research questions</p>
+          <table className="cs-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Research question</th>
+              </tr>
+            </thead>
+            <tbody>
+              {research.map(([type, q]) => (
+                <tr key={q}>
+                  <td>
+                    <span className={type === "To understand" ? "cs-type cs-type-gen" : "cs-type cs-type-eval"}>{type}</span>
+                  </td>
+                  <td>{q}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </section>
 
         <section className="cs-block">
-          <Seq n="06">Information Architecture Discovery</Seq>
+          <Seq n="05">Information architecture</Seq>
           <p>
-            Card sorting sessions mapped how teams grouped features, roles, and workflows. Those clusters shaped a
-            clearer, more conversion-focused information architecture: first understand the offering, then build trust,
-            explore capabilities, and finally take action.
+            Card sorting with consultants, PMs, engineers, procurement, accounts, and management showed how they already
+            grouped a job: proposals, devices on a floor plan, installation tasks, inventory, and payments.
+          </p>
+          <p>
+            The IA follows those clusters, so each role’s dashboard is a slice of the same map. It is not a marketing
+            funnel (understand the offering, then trust, then take action).
           </p>
           <img
             className="cs-figure"
@@ -452,45 +542,11 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="07">Design System Overview</Seq>
-          <div className="cs-ds">
-            <div>
-              <h3>Atoms (Basic Elements)</h3>
-              <ol>
-                <li>
-                  Color <span>→ All foundational color tokens</span>
-                </li>
-                <li>
-                  Typography <span>→ Font families, scales, weights</span>
-                </li>
-                <li>
-                  Shadows &amp; Blurs <span>→ Depth system</span>
-                </li>
-                <li>
-                  Spacing <span>→ Spacing tokens</span>
-                </li>
-                <li>
-                  Icon <span>→ Iconography library</span>
-                </li>
-              </ol>
-            </div>
-            <div>
-              <h3>Components</h3>
-              <ol start={6}>
-                <li>Button</li>
-                <li>Text Fields</li>
-                <li>Dropdown</li>
-                <li>Checkbox / Radio</li>
-                <li>Persona Facepile</li>
-                <li>Badges</li>
-                <li>Date Picker</li>
-                <li>Teaching Bubble</li>
-                <li>Slider Rating</li>
-                <li>Progress Bar</li>
-                <li>Breadcrumbs</li>
-              </ol>
-            </div>
-          </div>
+          <Seq n="06">Design system</Seq>
+          <p>
+            Six dashboards still have to feel like one company. Tokens, type, and shared components kept web and tablet
+            from drifting while each home stayed role-specific.
+          </p>
           <img
             className="cs-figure"
             src="/assets/cs-aha-design-system.png?v=2"
@@ -499,28 +555,10 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="08">Research Questions</Seq>
-          <table className="cs-table">
-            <thead>
-              <tr>
-                <th>Type</th>
-                <th>Research Question</th>
-              </tr>
-            </thead>
-            <tbody>
-              {research.map(([type, q]) => (
-                <tr key={q}>
-                  <td>{type}</td>
-                  <td>{q}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-
-        <section className="cs-block">
-          <Seq n="09">The AHA: Project Lifecycle</Seq>
-          <p className="cs-sub">A seamless journey from the first quote to the final handover.</p>
+          <Seq n="07">How a job moves through the product</Seq>
+          <p>
+            From the first customer on file to closed or deal won. Each step is a screen, not a slide in a process deck.
+          </p>
           <ol className="cs-life">
             {lifecycle.map((item) => (
               <li key={item.n}>
@@ -541,9 +579,13 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="10">Key Business Impact</Seq>
+          <Seq n="08">What changed</Seq>
+          <p>
+            After launch, teams reported about <strong>50% less operational work</strong>, and{" "}
+            <strong>4+ hours</strong> back per team. That time used to go into rebuilding the job across tools.
+          </p>
           <div className="cs-stats">
-            {stats.map((item) => (
+            {outcomes.map((item) => (
               <article key={item.label}>
                 <p>{item.value}</p>
                 <span>{item.label}</span>

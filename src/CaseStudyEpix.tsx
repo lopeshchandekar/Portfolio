@@ -29,7 +29,7 @@ const facts = [
 const challenges = [
   {
     title: "No digital channel to start from",
-    text: "Epix had the cinema — 10 screens, VIP, Kids, XL — but no website and no booking app. Tickets lived at the counter. The product had to be invented, not restyled.",
+    text: "Epix had the cinema (10 screens, VIP, Kids, XL) but no website and no booking app. Tickets lived at the counter. The product had to be invented, not restyled.",
   },
   {
     title: "Experiences had to be obvious on day one",
@@ -37,7 +37,7 @@ const challenges = [
   },
   {
     title: "One booking model for home and the mall",
-    text: "The same cinema had to make sense on a laptop the night before and on a phone in the lobby — one information architecture, two surfaces.",
+    text: "The same cinema had to make sense on a laptop the night before and on a phone in the lobby: one information architecture, two surfaces.",
   },
 ];
 
@@ -46,8 +46,8 @@ const decisions = [
     n: "01",
     title: "Quick booking on the home page",
     decision:
-      "A booking bar on home — location, cinema, movie, date, time — so a ticket starts on the landing page, not after opening a film to find a CTA.",
-    why: "Regulars already know the show. They should set it from the hero, the same way they would tell the person at the desk — without scrolling Now Showing first.",
+      "A booking bar on home (location, cinema, movie, date, time) so a ticket starts on the landing page, not after opening a film to find a CTA.",
+    why: "Regulars already know the show. They should set it from the hero, the same way they would tell the person at the desk, without scrolling Now Showing first.",
   },
   {
     n: "02",
@@ -60,7 +60,7 @@ const decisions = [
     n: "03",
     title: "VIP, Kids, and XL filters next to Now Showing",
     decision:
-      "Experience filters sit on the home page, beside Now Showing — not inside seat selection and not in a hidden menu.",
+      "Experience filters sit on the home page, beside Now Showing, not inside seat selection and not in a hidden menu.",
     why: "VIP, Kids, and XL only convert if you can filter to them while browsing films. Finding the hall after a standard seat is already picked is too late.",
   },
   {
@@ -68,14 +68,14 @@ const decisions = [
     title: "Fewer steps after Book Now",
     decision:
       "After Book Now, only seat selection and payment. No extra confirm pages, and no sending people back to pick a cinema or experience they already set on home.",
-    why: "A fast start on home does not help if the next four screens feel like paperwork. Drop-off happens after intent — every extra step is a chance to abandon.",
+    why: "A fast start on home does not help if the next four screens feel like paperwork. Drop-off happens after intent. Every extra step is a chance to abandon.",
   },
 ];
 
 const impacts = [
   {
     title: "15% sales increase",
-    copy: "Ticket sales rose 15% after the product launched — the first time Epix had a digital booking channel alongside the counter.",
+    copy: "Ticket sales rose 15% after the product launched, the first time Epix had a digital booking channel alongside the counter.",
   },
   {
     title: "2M+ app downloads",
@@ -83,7 +83,7 @@ const impacts = [
   },
   {
     title: "A complete product, not a concept",
-    copy: "The brief was the whole booking journey. The team shipped end-to-end design in a week: home, quick booking, experience filters, seats, and pay — on web and mobile.",
+    copy: "The brief was the whole booking journey. The team shipped end-to-end design in a week: home, quick booking, experience filters, seats, and pay, on web and mobile.",
   },
 ];
 
@@ -120,7 +120,7 @@ export function CaseStudyEpix() {
           alt="Epix Cinemas website on a laptop: Jurassic World hero, booking bar, and Now Showing posters"
         />
         <div className="cs-hero-copy">
-          <h1>Epix Cinemas — Designing a Seamless Digital Movie Experience</h1>
+          <h1>Epix Cinemas: Designing a Seamless Digital Movie Experience</h1>
         </div>
       </section>
 
@@ -161,8 +161,8 @@ export function CaseStudyEpix() {
             family-oriented halls. It operates at Dana Mall with 10 screens and capacity for over 1,100 seats.
           </p>
           <p>
-            This was a new product. There was no existing website. I designed the first digital booking experience —
-            web and mobile — so movie discovery and ticket booking would exist as one path, not a counter queue.
+            This was a new product. There was no existing website. I designed the first digital booking experience,
+            web and mobile, so movie discovery and ticket booking would exist as one path, not a counter queue.
           </p>
           <div className="cs-role">
             <h3>My Role</h3>
@@ -217,7 +217,7 @@ export function CaseStudyEpix() {
             {decisions.map((item) => (
               <article key={item.n}>
                 <h3>
-                  {item.n} — {item.title}
+                  {item.n}. {item.title}
                 </h3>
                 <p>
                   <strong>Decision:</strong> {item.decision}
@@ -238,7 +238,7 @@ export function CaseStudyEpix() {
           </p>
           <div className="cs-devices">
             <figure>
-              <p className="cs-ba-label">Desktop — live prototype</p>
+              <p className="cs-ba-label">Desktop, live prototype</p>
               <div className="cs-desktop">
                 <div className="cs-desktop-bezel">
                   <div className="cs-desktop-bar" aria-hidden="true">
@@ -247,16 +247,16 @@ export function CaseStudyEpix() {
                     <span />
                   </div>
                   <div className="cs-desktop-screen">
-                    <iframe title="Epix Cinemas website — interactive prototype" src={protoWebEmbed} allowFullScreen />
+                    <iframe title="Epix Cinemas website, interactive prototype" src={protoWebEmbed} allowFullScreen />
                   </div>
                 </div>
               </div>
             </figure>
             <figure>
-              <p className="cs-ba-label">Mobile — live prototype</p>
+              <p className="cs-ba-label">Mobile, live prototype</p>
               <div className="cs-phone">
                 <div className="cs-phone-screen">
-                  <iframe title="Epix Cinemas mobile app — interactive prototype" src={protoMobileEmbed} allowFullScreen />
+                  <iframe title="Epix Cinemas mobile app, interactive prototype" src={protoMobileEmbed} allowFullScreen />
                 </div>
               </div>
             </figure>
@@ -267,7 +267,7 @@ export function CaseStudyEpix() {
           <Seq n="05">Business Impact</Seq>
           <p>
             After launch, sales rose 15% and the mobile app reached 2M+ downloads. The week produced a booking product
-            people could actually use — not a homepage concept waiting on a later phase.
+            people could actually use, not a homepage concept waiting on a later phase.
           </p>
           <div className="cs-impact-list">
             {impacts.map((item) => (

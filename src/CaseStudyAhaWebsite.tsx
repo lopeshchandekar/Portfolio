@@ -4,19 +4,19 @@ import "./case-study.css";
 const overview = [
   { icon: "building", label: "Client", value: "AHA Smart Homes" },
   { icon: "chip", label: "Industry", value: "Smart Home · IoT" },
-  { icon: "cal", label: "Timeline", value: "2022 – 2024" },
+  { icon: "cal", label: "Timeline", value: "2022 to 2024" },
   { icon: "user", label: "My Role", value: "Sr. UI/UX Designer" },
 ];
 
 const problems = [
   { icon: "leads", text: "Low lead conversion from organic and paid traffic." },
   { icon: "seo", text: "SEO content was not structured for how people actually search." },
-  { icon: "spark", text: "Premium positioning was invisible — the site read like a generic gadget catalog." },
+  { icon: "spark", text: "Premium positioning was invisible. The site read like a generic gadget catalog." },
   { icon: "help", text: "Hard to understand the offering, cost, or why AHA over imported kits." },
 ];
 
 const insights = [
-  { icon: "chip", text: "Are the devices Chinese or imported — and who stands behind them?" },
+  { icon: "chip", text: "Are the devices Chinese or imported, and who stands behind them?" },
   { icon: "shield", text: "What does the warranty actually cover?" },
   { icon: "swap", text: "Who replaces a failed product after handover?" },
   { icon: "home", text: "Can I see real homes, not stock renders?" },
@@ -40,9 +40,9 @@ const questions = [
 
 const decisions = [
   { icon: "cam", title: "Premium imagery", copy: "Real homes and dark, editorial product shots instead of generic IoT stock." },
-  { icon: "page", title: "Dedicated product pages", copy: "Each product line got its own page so search and sales could land on lighting, locks, climate, and more — not a generic catalog." },
+  { icon: "page", title: "Dedicated product pages", copy: "Each product line got its own page so search and sales could land on lighting, locks, climate, and more, not a generic catalog." },
   { icon: "layers", title: "Stronger visual hierarchy", copy: "Scan the offering, proof, and enquire without hunting." },
-  { icon: "form", title: "Multiple enquiry forms", copy: "Ask along the journey — not only at the footer." },
+  { icon: "form", title: "Multiple enquiry forms", copy: "Ask along the journey, not only at the footer." },
   { icon: "seo", title: "SEO-focused structure", copy: "Product and service pages written for search and conversion together." },
 ];
 
@@ -314,8 +314,12 @@ export function CaseStudyAhaWebsite() {
             ))}
           </dl>
           <p>
-            Redesigning AHA Smart Homes’ digital experience — homepage and dedicated product pages — to position it as a
-            premium brand, then converting that trust into SEO-led traffic and qualified leads.
+            This is AHA’s public website: homepage and product pages for homeowners, architects, and interior
+            designers. The internal operations SaaS their install teams use is a separate case study.
+          </p>
+          <p>
+            The brief was to position AHA as a premium brand, then convert that trust into SEO-led traffic and qualified
+            leads.
           </p>
         </section>
 
@@ -343,7 +347,7 @@ export function CaseStudyAhaWebsite() {
               src: "/assets/cs-aha-web-old.jpg?v=5",
               alt: "Previous AHA Smart Homes website: room mood controls and key-free home sections",
             }}
-            caption="Before — the previous home page"
+            caption="Before: the previous home page"
           />
         </section>
 
@@ -362,8 +366,8 @@ export function CaseStudyAhaWebsite() {
             </div>
           </div>
           <Desktop
-            screen={{ embed: protoEmbed, title: "Revamped AHA Smart Homes website — interactive prototype" }}
-            caption="After — the revamped website (live prototype)"
+            screen={{ embed: protoEmbed, title: "Revamped AHA Smart Homes website, interactive prototype" }}
+            caption="After: the revamped website (live prototype)"
           />
           <a className="offset-btn cs-proto" href={proto} target="_blank" rel="noreferrer">
             Prototype Link
@@ -376,7 +380,7 @@ export function CaseStudyAhaWebsite() {
         <section className="cs-block">
           <Seq n="03">Key Insights</Seq>
           <p>
-            The real friction wasn’t the catalog — it was trust. Customers were shopping a high-ticket home system and
+            The real friction wasn’t the catalog. It was trust. Customers were shopping a high-ticket home system and
             needed answers before they would enquire:
           </p>
           <div className="cs-cards">
@@ -388,7 +392,7 @@ export function CaseStudyAhaWebsite() {
             ))}
           </div>
           <p>
-            AHA’s edge is owning the stack and taking responsibility when something fails — including replacing
+            AHA’s edge is owning the stack and taking responsibility when something fails, including replacing
             products. The site had to say that out loud.
           </p>
         </section>

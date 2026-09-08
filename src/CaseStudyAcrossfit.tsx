@@ -77,14 +77,14 @@ const userChallenges = [
   },
   {
     title: "Lack of recognition",
-    text: "Athletes want PRs, streaks, and effort seen beyond the class — not only in the room while the whiteboard is still up.",
+    text: "Athletes want PRs, streaks, and effort seen beyond the class, not only in the room while the whiteboard is still up.",
   },
 ];
 
 const solutions = [
   {
     lead: "Daily WOD",
-    text: "Today’s workout is the home screen — strength, warmup, metcon, accessory — not a buried class schedule.",
+    text: "Today’s workout is the home screen (strength, warmup, metcon, accessory), not a buried class schedule.",
   },
   {
     lead: "Plan ahead",
@@ -92,7 +92,7 @@ const solutions = [
   },
   {
     lead: "Log the score",
-    text: "After class, type, time, rounds, and notes live on one screen — instead of a notebook or a WhatsApp chat.",
+    text: "After class, type, time, rounds, and notes live on one screen, instead of a notebook or a WhatsApp chat.",
   },
   {
     lead: "Progress by movement",
@@ -127,7 +127,7 @@ const journey = ["Check today’s WOD", "Train in class", "Log the score", "See 
 
 const ia = [
   { title: "Home", text: "Streak, weekly progress, today’s WOD, leaders of the day, personal records." },
-  { title: "WOD", text: "Full workout list, notes, comments — the digital whiteboard." },
+  { title: "WOD", text: "Full workout list, notes, comments. The digital whiteboard." },
   { title: "Log", text: "Type, score, rounds, reps, how it felt. Save. Done." },
   { title: "Analytics", text: "Week overview, top movements, 1RM history per lift." },
   { title: "Community", text: "Leaderboard, streaks and badges, box feed, profile and membership." },
@@ -143,7 +143,7 @@ const decisions = [
   {
     n: "02",
     title: "Logging is its own step",
-    decision: "Score entry is a dedicated flow after class — type, time, optional rounds — not mixed into discovery.",
+    decision: "Score entry is a dedicated flow after class (type, time, optional rounds), not mixed into discovery.",
     why: "Logging happens sweaty and rushed. It has to be one screen, or it does not happen.",
   },
   {
@@ -171,7 +171,7 @@ const impacts = [
   },
   {
     title: "4.5 average rating",
-    copy: "The app is used as the daily companion to class — check, train, log — not as a unused membership portal.",
+    copy: "The app is used as the daily companion to class (check, train, log), not as an unused membership portal.",
   },
 ];
 
@@ -230,7 +230,7 @@ export function CaseStudyAcrossfit() {
           alt="CrossFit Kaali gym: a coach addressing athletes, with the line Empowering India through Strength, Discipline and Community"
         />
         <div className="cs-hero-copy">
-          <h1>Acrossfit Kaali — Workout tracking for a CrossFit community</h1>
+          <h1>Acrossfit Kaali: Workout tracking for a CrossFit community</h1>
         </div>
       </section>
 
@@ -268,7 +268,7 @@ export function CaseStudyAcrossfit() {
             creating a seamless and motivating mobile experience for users across different fitness levels.
           </p>
           <p>
-            CrossFit Kaali — Goddess of Boxes — needed an app around its own training methodology and community, not
+            CrossFit Kaali (Goddess of Boxes) needed an app around its own training methodology and community, not
             another generic gym tracker.
           </p>
           <p className="cs-sub">The Acrossfit Kaali app</p>
@@ -289,7 +289,7 @@ export function CaseStudyAcrossfit() {
           <Seq n="01">Why this matters</Seq>
           <p>
             CrossFit is fundamentally different from a traditional gym experience. Members don’t simply follow
-            individual workout plans — they train as a community, compete with one another, track performance daily,
+            individual workout plans. They train as a community, compete with one another, track performance daily,
             and constantly strive to improve personal records.
           </p>
           <p>
@@ -304,7 +304,7 @@ export function CaseStudyAcrossfit() {
           <Seq n="02">Objective</Seq>
           <p>
             Give the box a dedicated app for daily WODs, logging scores, seeing progress, and competing with the
-            community — built around how CrossFit Kaali actually trains, not a generic membership template.
+            community, built around how CrossFit Kaali actually trains, not a generic membership template.
           </p>
         </section>
 
@@ -317,7 +317,7 @@ export function CaseStudyAcrossfit() {
           <Seq n="04">The Solution</Seq>
           <p>
             One app for the hour before class, the hour after, and the days in between. Built around how this box
-            already trains — not a generic gym membership shell.
+            already trains, not a generic gym membership shell.
           </p>
           <Points items={solutions} />
         </section>
@@ -345,7 +345,7 @@ export function CaseStudyAcrossfit() {
           <article className="cs-persona-card">
             <h3>User profile</h3>
             <p>
-              Ages 18–45, active gym members who regularly participate in WODs, strength training, and community fitness
+              Ages 18-45, active gym members who regularly participate in WODs, strength training, and community fitness
               programs. Most users rely on a combination of gym whiteboards, spreadsheets, notes apps, or memory to
               track their performance.
             </p>
@@ -386,7 +386,7 @@ export function CaseStudyAcrossfit() {
             {problems.map((item, i) => (
               <article key={item.title}>
                 <h3>
-                  0{i + 1} — {item.title}
+                  0{i + 1}. {item.title}
                 </h3>
                 <p>{item.text}</p>
               </article>
@@ -442,7 +442,7 @@ export function CaseStudyAcrossfit() {
             {decisions.map((item) => (
               <article key={item.n}>
                 <h3>
-                  {item.n} — {item.title}
+                  {item.n}. {item.title}
                 </h3>
                 <p>
                   <strong>Decision:</strong> {item.decision}
@@ -464,7 +464,7 @@ export function CaseStudyAcrossfit() {
           <div className="cs-proto-phone">
             <div className="cs-phone">
               <div className="cs-phone-screen">
-                <iframe title="Acrossfit Kaali — interactive prototype" src={protoEmbed} allowFullScreen />
+                <iframe title="Acrossfit Kaali, interactive prototype" src={protoEmbed} allowFullScreen />
               </div>
             </div>
           </div>
@@ -473,7 +473,7 @@ export function CaseStudyAcrossfit() {
         <section className="cs-block">
           <Seq n="10">Validate</Seq>
           <p>
-            After launch the app became the place scores live. Retention and rating sit on top of that — a daily habit
+            After launch the app became the place scores live. Retention and rating sit on top of that: a daily habit
             around class, not a download that goes unused.
           </p>
           <div className="cs-impact-list">
