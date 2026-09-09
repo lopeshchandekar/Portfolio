@@ -551,6 +551,10 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.cs-stats-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .cs-stats article {
   display: flex;
   flex-direction: column;
@@ -1610,7 +1614,7 @@
 }
 
 .cs-aha-saas .cs-hero h1 {
-  max-width: 20ch;
+  max-width: 16ch;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
 }
 

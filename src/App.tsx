@@ -11,24 +11,17 @@ const works = [
     id: "aha-saas",
     kicker: "Internal SaaS · Smart Home Operations",
     title: "AHA SaaS System",
-    body: "The internal tool AHA’s teams use to run a smart-home job, from first lead to handover. Sales send a proposal PDF on WhatsApp. Install starts only after payment. About 50% less operational work, and 4+ hours saved per team.",
+    body: "The internal tool AHA’s teams use to run a smart-home job, from first lead to handover. Sales send a proposal PDF on WhatsApp. Install starts only after payment.",
     meta: "Internal operations SaaS · Sr. Product Designer",
-    tags: [
-      "User Interviews",
-      "Whiteboard Sessions",
-      "Wireframing",
-      "Role-based UX",
-      "Workflow Automation",
-      "Design System",
-    ],
+    tags: ["Role-based UX", "HA Diagram", "Design System"],
     cta: "View Case Study",
     stats: [
-      { value: "50%", label: "Faster operations" },
+      { value: "50%", label: "Less operational work" },
       { value: "4+", label: "Hours saved per team" },
-      { value: "6", label: "Role dashboards" },
     ],
     visual: "saas" as const,
     href: "#aha-saas",
+    featured: true,
   },
   {
     id: "maruti",
@@ -36,28 +29,23 @@ const works = [
     title: "INOX PVR Movie Booking App",
     body: "Redesigned the cinema experience to simplify movie booking and introduce a clearer F&B journey, making it easier for users to discover offers, order food, and redeem promotions during their cinema visit.",
     meta: "Cinema Platform · Product Designer · UX/UI Design",
-    tags: ["UX Redesign", "F&B Experience", "Offer Discovery", "QR Redemption"],
+    tags: ["UX Redesign", "F&B Experience", "QR Redemption"],
     cta: "View Case Study",
     href: "#inox",
     stats: [
       { value: "6%", label: "Faster booking" },
-      { value: "+4%", label: "App Downloads" },
-      { value: "Better", label: "F&B Engagement" },
+      { value: "+4%", label: "App downloads" },
     ],
     visual: "maruti" as const,
+    featured: true,
   },
   {
     id: "aha-landing",
     kicker: "Website · Growth Design",
     title: "AHA Smart Home Website",
-    body: "Rebuilt AHA’s public website (the homeowner-facing site, not the internal SaaS) so visitors could understand the offering, trust the brand, and enquire. SEO-led traffic contributed to ₹1Cr+ in revenue from leads.",
+    body: "Rebuilt AHA’s public website so visitors could understand the offering, trust the brand, and enquire. This is the homeowner-facing site, not the internal SaaS.",
     meta: "Brand Website · Sr. UI/UX Designer",
-    tags: [
-      "Conversion Design",
-      "Information Architecture",
-      "Design System",
-      "SEO Optimization",
-    ],
+    tags: ["Conversion Design", "Information Architecture", "SEO Optimization"],
     cta: "View Case Study",
     stats: [
       { value: "25%", label: "Engagement ↑" },
@@ -66,6 +54,7 @@ const works = [
     ],
     visual: "landing" as const,
     href: "#aha-landing",
+    featured: true,
   },
   {
     id: "prescrip",
@@ -87,6 +76,7 @@ const works = [
       { value: "15%", label: "Revenue Conversion" },
     ],
     visual: "prescrip" as const,
+    teaser: "An app for doctors to run a clinic from their phone: appointments, prescriptions, and records.",
   },
   {
     id: "epix",
@@ -108,6 +98,7 @@ const works = [
       { value: "1,100+", label: "Seats across 10 screens" },
     ],
     visual: "epix" as const,
+    teaser: "First digital booking experience for a cinema that previously had no website.",
   },
   {
     id: "acrossfit",
@@ -124,6 +115,7 @@ const works = [
       { value: "4.5", label: "Average User Rating" },
     ],
     visual: "acrossfit" as const,
+    teaser: "Today’s WOD on home, log the score after class, then PRs and a leaderboard.",
   },
 ];
 
@@ -254,8 +246,8 @@ function Header() {
 }
 
 function WorkVisual({ type }: { type: (typeof works)[number]["visual"] }) {
-  const shots: Partial<Record<(typeof works)[number]["visual"], { src: string; alt: string }>> = {
-    saas: { src: "/assets/img-aha-saas.png", alt: "AHA SaaS Proposal Management dashboard" },
+  const shots: Partial<Record<(typeof works)[number]["visual"], { src: string; alt: string; contain?: boolean }>> = {
+    saas: { src: "/assets/hero-aha-saas.png", alt: "AHA SaaS Sales Order Management on a laptop", contain: true },
     landing: { src: "/assets/img-aha-website.png", alt: "AHA Smart Homes website on a laptop" },
     prescrip: { src: "/assets/img-prescrip-app.png", alt: "Prescrip transactions app on a phone" },
     epix: { src: "/assets/img-epix-cinemas.png", alt: "Epix Cinemas website on a laptop" },
@@ -267,7 +259,7 @@ function WorkVisual({ type }: { type: (typeof works)[number]["visual"] }) {
     const shot = shots[type];
     return (
       <div className="work-visual">
-        <img className="shot fill" src={shot.src} alt={shot.alt} />
+        <img className={shot.contain ? "shot fill contain" : "shot fill"} src={shot.src} alt={shot.alt} />
       </div>
     );
   }
@@ -285,32 +277,18 @@ function Home() {
       <section className="hero" aria-label="Hero">
         <div className="hero-copy" data-reveal>
           <p className="eyebrow">6+ years of experience</p>
-          <h1>
-            Sr. Product Designer,
-            <br />
-            Turning Complexity
-            <br />
-            into Clarity.
-          </h1>
-          <div className="focus">
-            <span className="focus-label">My focus:</span>
-            {["Product Strategy", "Interaction Design", "System Design", "UX Thinking", "Growth Design"].map(
-              (item) => (
-                <span className="pill" key={item}>
-                  {item}
-                </span>
-              ),
-            )}
-          </div>
+          <h1>Product Designer</h1>
+          <p className="hero-lead">UI, UX, and Product Strategy</p>
+          <p className="hero-outcome">I design scalable product systems that cut extra work across SaaS, apps, and websites.</p>
           <OffsetButton href="#work" icon="/assets/icon-arrow.svg">
             View Selected Work
           </OffsetButton>
         </div>
-        <a className="hero-visual" href="#maruti" aria-label="View INOX PVR Movie Booking App" data-reveal>
+        <a className="hero-visual" href="#inox" aria-label="View INOX PVR Movie Booking App case study" data-reveal>
           <img
             className="hero-shot"
             src="/assets/hero-visual.png?v=3"
-            alt="INOX PVR Movie Booking App, view project"
+            alt="INOX PVR Movie Booking App, view case study"
           />
         </a>
       </section>
@@ -329,7 +307,9 @@ function Home() {
         Selected Works
       </h2>
       <div className="works">
-        {works.map((work) => (
+        {works
+          .filter((work) => work.featured)
+          .map((work) => (
           <article className="work" key={work.id} id={work.id} data-reveal>
             <div className="work-copy">
               <div>
@@ -345,7 +325,7 @@ function Home() {
                   ))}
                 </div>
                 <div className="work-cta">
-                  <OffsetButton href={"href" in work ? work.href : undefined} icon="/assets/icon-arrow-ne.svg">
+                  <OffsetButton href={work.href} icon="/assets/icon-arrow-ne.svg">
                     {work.cta}
                   </OffsetButton>
                 </div>
@@ -363,6 +343,24 @@ function Home() {
           </article>
         ))}
       </div>
+
+      <section className="more-work-section" aria-label="More work">
+        <h2 className="more-heading">More work</h2>
+        <div className="more-works">
+          {works
+            .filter((work) => !work.featured)
+            .map((work) => (
+              <a className="more-work" key={work.id} href={work.href} data-reveal>
+                <WorkVisual type={work.visual} />
+                <div className="more-work-copy">
+                  <p className="kicker">{work.kicker}</p>
+                  <h3>{work.title}</h3>
+                  <p>{work.teaser}</p>
+                </div>
+              </a>
+            ))}
+        </div>
+      </section>
 
       <section className="think">
         <img className="think-bg" src="/assets/think-bg.png" alt="" />
