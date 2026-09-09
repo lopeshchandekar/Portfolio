@@ -10,7 +10,7 @@ const protoEmbed = (node: string, start = "2933-694") =>
 const outcomes = [
   { value: "6%", label: "Faster booking" },
   { value: "+4%", label: "App downloads" },
-  { value: "Better", label: "F&B engagement" },
+  { value: "F&B", label: "Inside the booking path" },
 ];
 
 const facts = [
@@ -140,24 +140,24 @@ const decisions = [
 
 const impacts = [
   {
-    emoji: "🎯",
-    title: "Better Offer Discovery",
-    copy: "A dedicated Food Offers experience makes F&B promotions easier to discover and understand. More visibility → Better awareness → More opportunity to convert.",
-  },
-  {
     emoji: "🍿",
-    title: "Stronger F&B Engagement",
-    copy: "Bringing F&B services and offers into a clearer experience gives users more opportunities to explore food during their cinema journey. Discover → Explore → Order.",
+    title: "Food shows up before the queue",
+    copy: "Home, a dedicated F&B page, and Add Food at checkout give people more than one chance to see food before they stand at the counter.",
   },
   {
     emoji: "📱",
-    title: "Digital-to-Physical Connection",
-    copy: "QR-based redemption connects the digital offer experience with the physical food counter. App → QR → Counter → Redeem.",
+    title: "Offers that can actually be used",
+    copy: "Exclusive food offers redeem with one QR on the phone. An offer in the app can be used at the counter without a second process.",
+  },
+  {
+    emoji: "🏦",
+    title: "Bank offers stay on payment",
+    copy: "Ticket discounts and food offers serve different jobs. Splitting them made payment easier to read, and made food offers easier to find.",
   },
   {
     emoji: "💼",
-    title: "Stronger Promotional Channel",
-    copy: "Food Offers creates a dedicated space for promoting F&B campaigns and offers. Visibility → Consideration → Purchase opportunity.",
+    title: "Why F&B was the right place to work",
+    copy: "F&B is about 30% of PVR INOX revenue, and the profitable part of a visit. Tickets are shared with distributors. Putting food inside booking works on the line that matters most per guest.",
   },
 ];
 
@@ -451,8 +451,9 @@ export function CaseStudyInox() {
         <section className="cs-block">
           <Seq n="04">Business Impact</Seq>
           <p>
-            Post-launch, booking got roughly 6% faster and app downloads rose about 4%. The redesign also opened up F&amp;B
-            ground the old app couldn’t reach:
+            Post-launch, booking got roughly 6% faster and app downloads rose about 4%. Those two figures are measured.
+            The F&amp;B work did something else: it put food and exclusive offers in the path while people were already
+            buying a ticket.
           </p>
           <div className="cs-impact-list">
             {impacts.map((item) => (
@@ -465,8 +466,8 @@ export function CaseStudyInox() {
             ))}
           </div>
           <p className="cs-footnote">
-            The four points above describe opportunities the redesign created. I’ve kept them separate from the measured
-            figures rather than dressing them up as revenue or conversion numbers.
+            The four points above describe what the F&amp;B work opened up. They are not revenue or conversion numbers. I
+            have kept them separate from the 6% and 4% figures.
           </p>
         </section>
 
