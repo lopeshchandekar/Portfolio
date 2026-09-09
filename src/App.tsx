@@ -227,7 +227,7 @@ function Header() {
   return (
     <header className="site-header">
       <nav className="socials" aria-label="Social">
-        <a href="https://www.linkedin.com/in/lopeshchandekar" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/lopesh-chandekar-71a48322/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <img src="/assets/icon-linkedin.svg" alt="" width={14} height={14} />
         </a>
         <a href="https://www.instagram.com/lopeshchandekar" target="_blank" rel="noreferrer" aria-label="Instagram">
