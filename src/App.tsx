@@ -230,9 +230,6 @@ function Header() {
         <a href="https://www.linkedin.com/in/lopesh-chandekar-71a48322/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <img src="/assets/icon-linkedin.svg" alt="" width={14} height={14} />
         </a>
-        <a href="https://www.behance.net/lopeshchandekar" target="_blank" rel="noreferrer" aria-label="Behance">
-          <img src="/assets/icon-behance.svg" alt="" width={14} height={14} />
-        </a>
       </nav>
       <a className="brand" href="#top">
         <img src="/assets/avatar.png" alt="" width={20} height={20} />
