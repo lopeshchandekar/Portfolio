@@ -352,13 +352,14 @@ export function CaseStudyInox() {
 
         <section className="cs-block">
           <Seq>Style Guide, Design System</Seq>
-          <div className="cs-embed">
-            <iframe
-              title="INOX design system, style guide"
-              src="https://evict-tool-46901106.figma.site/"
-              allowFullScreen
-            />
-          </div>
+          <figure className="cs-shot">
+            <a href="/assets/cs-inox-design-system.png" target="_blank" rel="noreferrer">
+              <img
+                src="/assets/cs-inox-design-system.png"
+                alt="INOX design system: foundations, components, cinema, seat, food, and offer patterns"
+              />
+            </a>
+          </figure>
         </section>
 
         <section className="cs-block">
