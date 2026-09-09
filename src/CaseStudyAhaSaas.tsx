@@ -124,7 +124,7 @@ const lifecycle = [
     emoji: "👤",
     title: "Customer on file",
     copy: "Lead from Meta ads, then a call, then a demo. After that the customer is saved on the job with the electrical plan, instead of in three places.",
-    img: "/assets/cs-aha-life-1.png",
+    img: "/assets/cs-aha-life-1.png?v=3",
     alt: "Upload electrical layout plan in Proposal Management",
   },
   {
@@ -132,7 +132,7 @@ const lifecycle = [
     emoji: "📐",
     title: "HA diagram: devices and price",
     copy: "The consultant places devices on the floor plan, estimates the price, and generates the PDF that goes out on WhatsApp.",
-    img: "/assets/cs-aha-life-2.png",
+    img: "/assets/cs-aha-life-2.png?v=3",
     alt: "Sales Order Management HA diagram with devices on a floor plan",
   },
   {
@@ -140,7 +140,7 @@ const lifecycle = [
     emoji: "📦",
     title: "Inventory",
     copy: "Procurement handles stock for this job, including anything the site visit added.",
-    img: "/assets/cs-aha-life-3.png",
+    img: "/assets/cs-aha-life-3.png?v=3",
     alt: "Device Manager add-devices form with pricing",
   },
   {
@@ -148,7 +148,7 @@ const lifecycle = [
     emoji: "🏠",
     title: "Site visit, then tasks",
     copy: "Engineer and PM check each point on site. Then the PM assigns daily work in the SaaS. The client still follows the WhatsApp group.",
-    img: "/assets/cs-aha-life-4.png",
+    img: "/assets/cs-aha-life-4.png?v=3",
     alt: "Task List weekly calendar for installation planning",
   },
   {
@@ -156,7 +156,7 @@ const lifecycle = [
     emoji: "🛠️",
     title: "Install on tablet or desktop",
     copy: "Engineers mark progress on the same job. If the accountant shows amount pending, some devices are not installed.",
-    img: "/assets/cs-aha-life-5.png",
+    img: "/assets/cs-aha-life-5.png?v=3",
     alt: "Customer Project Plan with task status updates",
   },
   {
@@ -164,7 +164,7 @@ const lifecycle = [
     emoji: "💳",
     title: "Money on this job",
     copy: "Accounts sees received vs pending here, then emails, posts on the WhatsApp group, or calls. Full payment unlocks handover.",
-    img: "/assets/cs-aha-life-7.png",
+    img: "/assets/cs-aha-life-7.png?v=3",
     alt: "Payment Summary with milestone status",
   },
   {
@@ -172,7 +172,7 @@ const lifecycle = [
     emoji: "🏁",
     title: "Closed / deal won",
     copy: "Management watches the portfolio. After handover, the job is marked closed or deal won. That is the company’s close, not an automated client email.",
-    img: "/assets/cs-aha-life-6.png",
+    img: "/assets/cs-aha-life-6.png?v=3",
     alt: "Project Management overview of project progress",
   },
 ];
@@ -405,6 +405,13 @@ export function CaseStudyAhaSaas() {
           </div>
         </section>
 
+        <figure className="cs-aha-product">
+          <img
+            src="/assets/cs-aha-product.png?v=4"
+            alt="AHA SaaS Sales Order Management on a laptop, HA diagram for a living area"
+          />
+        </figure>
+
         <section className="cs-block">
           <Seq n="01">The problem</Seq>
           <p>
@@ -528,26 +535,43 @@ export function CaseStudyAhaSaas() {
           </p>
           <img
             className="cs-figure"
-            src="/assets/cs-aha-ia.png?v=2"
+            src="/assets/cs-aha-ia.png?v=3"
             alt="Card sorting boards exploring information architecture across three groupings"
           />
         </section>
 
         <section className="cs-block">
-          <Seq n="06">Design system</Seq>
+          <Seq n="06">Wireframes</Seq>
+          <p>
+            Seven lo-fi frames for the job: sign in, customer, proposal, the electrical plan, the HA diagram, and the
+            task list. Structure only, before colour.
+          </p>
+          <figure className="cs-shot">
+            <a href="/assets/cs-aha-wireframes.png?v=2" target="_blank" rel="noreferrer">
+              <img
+                src="/assets/cs-aha-wireframes.png?v=2"
+                alt="AHA SaaS wireframes: sign in, customer list, customer details, proposals, electrical plan, HA diagram, and task list"
+              />
+            </a>
+          </figure>
+          <p className="cs-caption">Open the full-size sheet ↗</p>
+        </section>
+
+        <section className="cs-block">
+          <Seq n="07">Design system</Seq>
           <p>
             Six dashboards still have to feel like one company. Tokens, type, and shared components kept web and tablet
             from drifting while each home stayed role-specific.
           </p>
           <img
             className="cs-figure"
-            src="/assets/cs-aha-design-system.png?v=2"
+            src="/assets/cs-aha-design-system.png?v=3"
             alt="AHA Smart Homes design system: color foundations and brand palette"
           />
         </section>
 
         <section className="cs-block">
-          <Seq n="07">How a job moves through the product</Seq>
+          <Seq n="08">How a job moves through the product</Seq>
           <p>
             WhatsApp is still how the household sees the job. The SaaS is how AHA trusts it. Each step below is a
             screen, not a slide.
@@ -572,7 +596,7 @@ export function CaseStudyAhaSaas() {
         </section>
 
         <section className="cs-block">
-          <Seq n="08">What changed</Seq>
+          <Seq n="09">What changed</Seq>
           <p>
             After launch, teams reported about <strong>50% less operational work</strong>, and{" "}
             <strong>4+ hours</strong> back per team. That time used to go into rebuilding the job across tools.

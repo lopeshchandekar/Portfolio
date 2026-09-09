@@ -247,7 +247,7 @@ function Header() {
 
 function WorkVisual({ type }: { type: (typeof works)[number]["visual"] }) {
   const shots: Partial<Record<(typeof works)[number]["visual"], { src: string; alt: string; contain?: boolean }>> = {
-    saas: { src: "/assets/hero-aha-saas.png", alt: "AHA SaaS Sales Order Management on a laptop", contain: true },
+    saas: { src: "/assets/hero-aha-saas.png?v=3", alt: "AHA SaaS Sales Order Management on a laptop", contain: true },
     landing: { src: "/assets/img-aha-website.png", alt: "AHA Smart Homes website on a laptop" },
     prescrip: { src: "/assets/img-prescrip-app.png", alt: "Prescrip transactions app on a phone" },
     epix: { src: "/assets/img-epix-cinemas.png", alt: "Epix Cinemas website on a laptop" },
