@@ -723,7 +723,7 @@ button {
 .think {
   position: relative;
   overflow: hidden;
-  padding: 80px 40px;
+  padding: 80px 24px;
   color: #fff;
 }
 
@@ -757,7 +757,9 @@ button {
   position: relative;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 24px;
+  gap: 16px;
+  max-width: 1824px;
+  margin: 0 auto;
 }
 
 .stamp {
@@ -812,6 +814,7 @@ button {
   font-family: var(--serif);
   font-size: clamp(48px, 5vw, 85px);
   font-weight: 200;
+  line-height: 1;
 }
 
 .experience-head span {
@@ -1122,6 +1125,11 @@ button {
     margin: 48px 0 24px;
   }
 
+  .think {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
   .work-copy {
     padding: 32px 22px 28px;
     gap: 36px;
@@ -1172,6 +1180,14 @@ button {
     height: 320px;
     min-height: 320px;
     max-height: 320px;
+  }
+
+  .job {
+    min-height: 0;
+    gap: 10px;
+    padding: 20px 0;
+    align-items: start;
+    justify-items: start;
   }
 
   .job time,
