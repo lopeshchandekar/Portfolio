@@ -372,7 +372,7 @@ export function CaseStudyInox() {
           <div className="cs-embed">
             <iframe
               title="INOX wireframe, user journeys"
-              src="https://embed.figma.com/board/HV24JMtjO9t2jQN7ES80iM/Inox-Wireframe---User-Journeys?node-id=0-1&embed-host=share"
+              src="https://embed.figma.com/board/HV24JMtjO9t2jQN7ES80iM/Inox-Wireframe---User-Journeys?node-id=0-1&embed-host=share&t=MIPyKMGAVkFBwRPc-0"
               allowFullScreen
             />
           </div>
