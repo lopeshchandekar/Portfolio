@@ -21,14 +21,14 @@ const facts = [
 
 const challenges = [
   {
-    title: "F&B lived outside the booking journey",
-    text: "Food ordering sat in its own category grid, disconnected from the flow users were actually in. If you didn’t think about food while booking your seat, nothing brought it back up, so the order was lost to the counter queue.",
-    ask: "Introduce a clearer way to discover, access, and redeem F&B.",
+    icon: "look",
+    title: "Make the app easier to use and more visually appealing",
+    text: "The old app felt dated and was difficult to navigate. The goal was to improve usability, modernize the visual experience, and make interactions more intuitive without changing the familiar ticket-booking flow that users already know.",
   },
   {
-    title: "Offers were scattered across unrelated screens",
-    text: "Bank offers, coupons, vouchers, and reward points each surfaced in a different place, and the payment screen carried most of them at once. Users had to scan a dense page to work out which discount applied to them.",
-    ask: "Refresh the visual language and simplify the experience while keeping familiar core journeys intact.",
+    icon: "food",
+    title: "A dedicated Food & Beverage page with exclusive offers",
+    text: "Introduced a new F&B section into the booking journey, allowing users to explore food and beverage offers before their movie. Offers can be redeemed easily at the cinema counter by scanning a QR code displayed on the user’s phone.",
   },
 ];
 
@@ -160,6 +160,33 @@ const impacts = [
     copy: "Food Offers creates a dedicated space for promoting F&B campaigns and offers. Visibility → Consideration → Purchase opportunity.",
   },
 ];
+
+function ChallengeIcon({ name }: { name: string }) {
+  const stroke = { fill: "none", stroke: "currentColor", strokeWidth: 1.7, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+  switch (name) {
+    case "look":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="6.5" y="2.5" width="11" height="19" rx="2.2" {...stroke} />
+          <path d="M10 18.5h4" {...stroke} />
+          <path d="M12 6.2v0M10.4 8.4h3.2M10.4 11h3.2M10.4 13.6h2.2" {...stroke} />
+          <path d="M18.6 5.2l.6 1.3 1.4.2-1 1 .2 1.4-1.2-.7-1.2.7.2-1.4-1-1 1.4-.2z" {...stroke} />
+        </svg>
+      );
+    case "food":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2.5" y="2.5" width="8.5" height="8.5" rx="1.2" {...stroke} />
+          <rect x="4.6" y="4.6" width="4.3" height="4.3" rx="0.6" {...stroke} />
+          <path d="M13.2 10h8.2l-1.3 10.2h-5.6L13.2 10z" {...stroke} />
+          <path d="M15.2 10c0-1.3.9-2.3 2.1-2.3s2.1 1 2.1 2.3" {...stroke} />
+          <path d="M16.4 8.2c-.2-1 .5-1.9 1.4-1.9" {...stroke} />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
 
 function Seq({ n, children }: { n?: string; children: string }) {
   return (
@@ -314,13 +341,14 @@ export function CaseStudyInox() {
         <section className="cs-block">
           <Seq n="01">The Challenge</Seq>
           <div className="cs-challenge-list">
-            {challenges.map((item) => (
+            {challenges.map((item, i) => (
               <article key={item.title}>
+                <div className="cs-inox-challenge-mark">
+                  <ChallengeIcon name={item.icon} />
+                  <b>{String(i + 1).padStart(2, "0")}</b>
+                </div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
-                <p className="cs-ask">
-                  <strong>The brief:</strong> {item.ask}
-                </p>
               </article>
             ))}
           </div>
