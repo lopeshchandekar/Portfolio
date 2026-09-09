@@ -114,27 +114,27 @@ const comparisons: Comparison[] = [
 const decisions = [
   {
     n: "01",
-    title: "Give F&B a clear destination",
-    decision: "Create a dedicated Food experience.",
-    why: "Make F&B services and offers easier to discover without making users search through the wider booking experience.",
+    title: "Keep the booking flow people already know",
+    decision: "Refresh the look, type, and hierarchy. Do not invent a new way to book a ticket.",
+    why: "A dated app loses trust fast. A new booking path would make people relearn a job they already do. The work was to make the known path clearer, not to replace it.",
   },
   {
     n: "02",
-    title: "Keep different offer types in context",
-    decision: "Keep Bank Offers within the relevant payment/offer experience while introducing dedicated Food Offers.",
-    why: "Bank offers and F&B promotions serve different user needs.",
+    title: "Give F&B a home, and more than one way in",
+    decision: "A dedicated Food page, plus an entry on Home, plus Add Food at checkout.",
+    why: "A single buried tab is easy to skip. People decide on snacks at different moments: while browsing movies, while paying, or after seats are already booked. One destination with two reminders catches those moments.",
   },
   {
     n: "03",
-    title: "Use one redemption method",
-    decision: "Both Scan QR and Food Offers lead users to the same QR-based redemption experience.",
-    why: "Different ways of discovering an offer shouldn’t result in different redemption processes. Different discovery → Same redemption.",
+    title: "Keep bank offers on payment, food offers with food",
+    decision: "Ticket discounts stay on the payment screen. Exclusive F&B offers live in the food experience.",
+    why: "The old payment screen stacked bank offers, coupons, vouchers, and snack deals together. A bank offer changes what you pay for the ticket. A food offer changes what you buy at the counter. They belong on different screens.",
   },
   {
     n: "04",
-    title: "Better Payment Experience",
-    decision: "Improved information hierarchy and clearer Bank Offers make the payment screen easier to understand.",
-    why: "The old payment screen was information-heavy, making it harder to find relevant offers and understand the final payment.",
+    title: "One QR at the counter, however you found the offer",
+    decision: "Scan QR and Food Offers both end on the same QR on the phone. Staff scan that at the counter.",
+    why: "Mapping every route into food showed two discovery paths and two redemption paths. Two ways to redeem is two ways for the counter to fail. One endpoint means the offer in the app is the same offer in the lobby.",
   },
 ];
 
@@ -379,6 +379,29 @@ export function CaseStudyInox() {
         </section>
 
         <section className="cs-block">
+          <Seq n="02">What I chose</Seq>
+          <p>
+            After mapping every route into food, these were the calls. They decided what to keep, what to add, and how
+            offers would work at the counter.
+          </p>
+          <div className="cs-decisions">
+            {decisions.map((item) => (
+              <article key={item.n}>
+                <h3>
+                  {item.n}. {item.title}
+                </h3>
+                <p>
+                  <strong>Decision:</strong> {item.decision}
+                </p>
+                <p>
+                  <strong>Why:</strong> {item.why}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="cs-block">
           <Seq>Style Guide, Design System</Seq>
           <figure className="cs-shot">
             <a href="/assets/cs-inox-design-system.png" target="_blank" rel="noreferrer">
@@ -408,7 +431,7 @@ export function CaseStudyInox() {
         </section>
 
         <section className="cs-block">
-          <Seq n="02">What Changed? Before &amp; After</Seq>
+          <Seq n="03">What Changed? Before &amp; After</Seq>
           <p>
             The redesign wasn’t only about making the interface look better. I used the visual refresh as cover to fix
             four specific F&amp;B touchpoints. Each one is paired with the screen it replaced below.
@@ -427,25 +450,6 @@ export function CaseStudyInox() {
               </div>
             </div>
           ))}
-        </section>
-
-        <section className="cs-block">
-          <Seq n="03">Design Decisions</Seq>
-          <div className="cs-decisions">
-            {decisions.map((item) => (
-              <article key={item.n}>
-                <h3>
-                  {item.n}. {item.title}
-                </h3>
-                <p>
-                  <strong>Decision:</strong> {item.decision}
-                </p>
-                <p>
-                  <strong>Why:</strong> {item.why}
-                </p>
-              </article>
-            ))}
-          </div>
         </section>
 
         <section className="cs-block">

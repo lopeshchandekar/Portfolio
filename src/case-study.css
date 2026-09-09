@@ -993,6 +993,22 @@
   letter-spacing: 0.03em;
 }
 
+.cs-inox .cs-decisions {
+  gap: 28px;
+}
+
+.cs-inox .cs-decisions h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+}
+
+.cs-inox .cs-decisions p {
+  font-size: 20px;
+  line-height: 1.75;
+}
+
 .cs-role {
   margin-top: 40px;
 }
