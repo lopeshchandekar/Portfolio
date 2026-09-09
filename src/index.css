@@ -237,10 +237,6 @@ button {
 }
 
 @media (max-width: 480px) {
-  .socials a:nth-child(3) {
-    display: none;
-  }
-
   .nav-links a:first-child {
     font-size: 12px;
   }
@@ -595,7 +591,7 @@ button {
 }
 
 .work .meta {
-  margin: 24px 0 8px;
+  margin: 24px 0 10px;
   color: var(--grey-50);
   font-size: 12px;
   letter-spacing: 0.48px;
@@ -605,27 +601,49 @@ button {
 .tags {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
 }
 
 .tag {
   display: inline-flex;
   align-items: center;
-  height: 17px;
-  padding: 0 8px;
+  box-sizing: border-box;
+  min-height: 22px;
+  padding: 3px 10px;
   border: 1px solid var(--grey-50);
   border-radius: 31px;
   color: var(--grey-20);
   font-size: 11px;
   letter-spacing: 0.88px;
+  line-height: 1;
   text-transform: uppercase;
+}
+
+.work-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.work-cta .offset-btn {
+  margin-top: 0;
 }
 
 .stats {
   display: flex;
   flex-wrap: wrap;
   gap: 48px 80px;
-  align-items: flex-end;
+  align-items: flex-start;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
 }
 
 .stat b {
@@ -633,13 +651,16 @@ button {
   color: var(--red);
   font-size: 29px;
   font-weight: 400;
-  line-height: 38px;
+  line-height: 1.15;
 }
 
 .stat span {
+  display: block;
+  margin-top: 2px;
   color: var(--grey-20);
   font-size: 14px;
   letter-spacing: 0.56px;
+  line-height: 1.3;
 }
 
 .work-visual {
@@ -1054,7 +1075,7 @@ button {
   }
 
   .hero {
-    width: calc(100% - 40px);
+    width: calc(100% - 24px);
     padding: 24px 0 0;
     height: auto;
     min-height: 0;
@@ -1093,8 +1114,40 @@ button {
   .experience,
   .testimonials,
   .site-footer {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .section-title {
+    margin: 48px 0 24px;
+  }
+
+  .work-copy {
+    padding: 28px 20px 24px;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .work .kicker {
+    margin-bottom: 8px;
+  }
+
+  .work p {
+    max-width: none;
+    margin-top: 12px;
+  }
+
+  .work .meta {
+    margin: 16px 0 10px;
+  }
+
+  .work-cta {
+    margin-top: 16px;
+  }
+
+  .stats {
+    gap: 20px 32px;
+    align-items: flex-start;
   }
 
   .focus {
@@ -1119,6 +1172,24 @@ button {
 }
 
 @media (max-width: 600px) {
+  .works,
+  .experience,
+  .testimonials,
+  .site-footer {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .work-copy {
+    padding: 22px 16px 20px;
+  }
+
+  .stats {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
   .work-visual,
   .phones {
     height: 240px;

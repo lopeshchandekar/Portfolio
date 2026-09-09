@@ -12,7 +12,7 @@ const works = [
     kicker: "Internal SaaS · Smart Home Operations",
     title: "AHA SaaS System",
     body: "The internal tool AHA’s teams use to run a smart-home job, from first lead to handover. Sales send a proposal PDF on WhatsApp. Install starts only after payment. About 50% less operational work, and 4+ hours saved per team.",
-    meta: "| Internal operations SaaS · Sr. Product Designer",
+    meta: "Internal operations SaaS · Sr. Product Designer",
     tags: [
       "User Interviews",
       "Whiteboard Sessions",
@@ -35,7 +35,7 @@ const works = [
     kicker: "Entertainment Platform · Mobile App",
     title: "INOX PVR Movie Booking App",
     body: "Redesigned the cinema experience to simplify movie booking and introduce a clearer F&B journey, making it easier for users to discover offers, order food, and redeem promotions during their cinema visit.",
-    meta: "| Cinema Platform · Product Designer · UX/UI Design",
+    meta: "Cinema Platform · Product Designer · UX/UI Design",
     tags: ["UX Redesign", "F&B Experience", "Offer Discovery", "QR Redemption"],
     cta: "View Case Study",
     href: "#inox",
@@ -51,7 +51,7 @@ const works = [
     kicker: "Website · Growth Design",
     title: "AHA Smart Home Website Revamp",
     body: "Rebuilt AHA’s public website (the homeowner-facing site, not the internal SaaS) so visitors could understand the offering, trust the brand, and enquire. SEO-led traffic contributed to ₹1Cr+ in revenue from leads.",
-    meta: "| Brand Website · Sr. UI/UX Designer",
+    meta: "Brand Website · Sr. UI/UX Designer",
     tags: [
       "Conversion Design",
       "Information Architecture",
@@ -72,7 +72,7 @@ const works = [
     kicker: "iOS & Android App · Healthcare",
     title: "Prescrip - App for Doctors",
     body: "An app for doctors to run a clinic from their phone: appointments, digital prescriptions, and patient records, instead of paper, WhatsApp, and handwritten scripts.",
-    meta: "| Healthcare Platform · Sr. UI/UX Designer",
+    meta: "Healthcare Platform · Sr. UI/UX Designer",
     tags: [
       "Doctor Interviews",
       "Practice Workflows",
@@ -93,7 +93,7 @@ const works = [
     kicker: "Entertainment Platform · Web & Mobile",
     title: "Epix Cinemas",
     body: "Designed Epix Cinemas’ first digital booking experience: a booking bar on home, VIP / Kids / XL filters beside Now Showing, and only seats and pay after Book Now, for a cinema that previously had no website.",
-    meta: "| Cinema Platform · Sr UI UX Designer · 2025 to Present · Bahrain",
+    meta: "Cinema Platform · Sr UI UX Designer · 2025 to Present · Bahrain",
     tags: [
       "Journey Mapping",
       "UX Strategy",
@@ -114,7 +114,7 @@ const works = [
     kicker: "Fitness Management Platform · iOS & Android",
     title: "Acrossfit Kaali",
     body: "Designed the daily companion for CrossFit Kaali: today’s WOD on home, log the score after class, see PRs and a leaderboard, instead of notebooks and WhatsApp.",
-    meta: "| Fitness Management App · Product Designer",
+    meta: "Fitness Management App · Product Designer",
     tags: ["Design System", "Fitness App", "Mobile UX", "User Engagement"],
     cta: "View Case Study",
     href: "#acrossfit",
@@ -229,9 +229,6 @@ function Header() {
       <nav className="socials" aria-label="Social">
         <a href="https://www.linkedin.com/in/lopesh-chandekar-71a48322/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <img src="/assets/icon-linkedin.svg" alt="" width={14} height={14} />
-        </a>
-        <a href="https://www.instagram.com/lopeshchandekar" target="_blank" rel="noreferrer" aria-label="Instagram">
-          <img src="/assets/icon-instagram.svg" alt="" width={14} height={14} />
         </a>
         <a href="https://www.behance.net/lopeshchandekar" target="_blank" rel="noreferrer" aria-label="Behance">
           <img src="/assets/icon-behance.svg" alt="" width={14} height={14} />
@@ -350,7 +347,7 @@ function Home() {
                     </span>
                   ))}
                 </div>
-                <div style={{ display: "flex", gap: 16, marginTop: 32, flexWrap: "wrap", alignItems: "center" }}>
+                <div className="work-cta">
                   <OffsetButton href={"href" in work ? work.href : undefined} icon="/assets/icon-arrow-ne.svg">
                     {work.cta}
                   </OffsetButton>
