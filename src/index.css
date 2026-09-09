@@ -591,7 +591,7 @@ button {
 }
 
 .work .meta {
-  margin: 24px 0 10px;
+  margin: 28px 0 12px;
   color: var(--grey-50);
   font-size: 12px;
   letter-spacing: 0.48px;
@@ -602,7 +602,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 10px 8px;
 }
 
 .tag {
@@ -625,7 +625,7 @@ button {
   flex-wrap: wrap;
   align-items: center;
   gap: 16px;
-  margin-top: 20px;
+  margin-top: 28px;
 }
 
 .work-cta .offset-btn {
@@ -656,7 +656,7 @@ button {
 
 .stat span {
   display: block;
-  margin-top: 2px;
+  margin-top: 4px;
   color: var(--grey-20);
   font-size: 14px;
   letter-spacing: 0.56px;
@@ -1123,30 +1123,39 @@ button {
   }
 
   .work-copy {
-    padding: 28px 20px 24px;
-    gap: 20px;
+    padding: 32px 22px 28px;
+    gap: 36px;
     justify-content: flex-start;
   }
 
   .work .kicker {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+  }
+
+  .work h3 {
+    line-height: 1.15;
   }
 
   .work p {
     max-width: none;
-    margin-top: 12px;
+    margin-top: 16px;
+    line-height: 1.7;
   }
 
   .work .meta {
-    margin: 16px 0 10px;
+    margin: 28px 0 14px;
+  }
+
+  .tags {
+    gap: 12px 8px;
   }
 
   .work-cta {
-    margin-top: 16px;
+    margin-top: 28px;
   }
 
   .stats {
-    gap: 20px 32px;
+    gap: 28px 32px;
     align-items: flex-start;
   }
 
@@ -1176,18 +1185,19 @@ button {
   .experience,
   .testimonials,
   .site-footer {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .work-copy {
-    padding: 22px 16px 20px;
+    padding: 28px 20px 24px;
+    gap: 32px;
   }
 
   .stats {
     flex-direction: column;
     flex-wrap: nowrap;
-    gap: 16px;
+    gap: 24px;
   }
 
   .work-visual,
