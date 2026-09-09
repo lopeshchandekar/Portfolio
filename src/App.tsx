@@ -49,7 +49,7 @@ const works = [
   {
     id: "aha-landing",
     kicker: "Website · Growth Design",
-    title: "AHA Smart Home Website Revamp",
+    title: "AHA Smart Home Website",
     body: "Rebuilt AHA’s public website (the homeowner-facing site, not the internal SaaS) so visitors could understand the offering, trust the brand, and enquire. SEO-led traffic contributed to ₹1Cr+ in revenue from leads.",
     meta: "Brand Website · Sr. UI/UX Designer",
     tags: [
@@ -232,7 +232,7 @@ function Header() {
         </a>
       </nav>
       <a className="brand" href="#top">
-        <img src="/assets/avatar.png" alt="" width={20} height={20} />
+        <img src="/assets/avatar.png?v=2" alt="" width={20} height={20} />
         <span>
           <span className="brand-im">I’m </span>
           <em>Lopesh Chandekar</em>

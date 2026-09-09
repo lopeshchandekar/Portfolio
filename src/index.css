@@ -1194,6 +1194,14 @@ button {
   .job .company {
     text-align: left;
   }
+
+  .rule-v {
+    display: none;
+  }
+
+  .testi-grid {
+    gap: 24px;
+  }
 }
 
 @media (max-width: 600px) {

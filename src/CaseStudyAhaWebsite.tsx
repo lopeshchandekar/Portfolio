@@ -283,7 +283,7 @@ export function CaseStudyAhaWebsite() {
       <section className="cs-hero">
         <img src="/assets/cs-aha-web-hero.jpg" alt="AHA Smart Home: a warm, backlit luxury bedroom" />
         <div className="cs-hero-copy">
-          <h1>AHA Smart Home Website Revamp</h1>
+          <h1>AHA Smart Home Website</h1>
         </div>
       </section>
 
@@ -366,8 +366,8 @@ export function CaseStudyAhaWebsite() {
             </div>
           </div>
           <Desktop
-            screen={{ embed: protoEmbed, title: "Revamped AHA Smart Homes website, interactive prototype" }}
-            caption="After: the revamped website (live prototype)"
+            screen={{ embed: protoEmbed, title: "AHA Smart Homes website, interactive prototype" }}
+            caption="After: the live website (prototype)"
           />
           <a className="offset-btn cs-proto" href={proto} target="_blank" rel="noreferrer">
             Prototype Link
@@ -444,7 +444,7 @@ export function CaseStudyAhaWebsite() {
 
         <section className="cs-block">
           <Seq n="06">Business Impact</Seq>
-          <p>The revamp strengthened AHA’s digital presence and gave sales a site that actually supported the close.</p>
+          <p>The new site strengthened AHA’s digital presence and gave sales a site that actually supported the close.</p>
           <div className="cs-stats cs-stats-3">
             {stats.map((item) => (
               <article key={item.label}>
