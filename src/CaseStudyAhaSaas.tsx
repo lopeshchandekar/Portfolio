@@ -12,8 +12,9 @@ const facts = [
 ];
 
 const outcomes = [
-  { value: "50%", label: "Less operational work" },
-  { value: "4+", label: "Hours saved per team" },
+  { value: "50%", label: "Faster operations" },
+  { value: "4+ hours", label: "Saved per team (approx)" },
+  { value: "Real Time", label: "Visibility" },
 ];
 
 const preSteps = [
@@ -185,7 +186,7 @@ const impacts = [
   },
   {
     icon: "bolt",
-    title: "50% less operational work",
+    title: "50% faster operations",
     copy: "Less rebuilding the job from Excel, CRM, and chat. Teams got 4+ hours back.",
   },
   {
@@ -369,7 +370,7 @@ export function CaseStudyAhaSaas() {
         </div>
 
         <section className="cs-block cs-outcomes">
-          <div className="cs-stats cs-stats-2">
+          <div className="cs-stats cs-stats-3">
             {outcomes.map((item) => (
               <article key={item.label}>
                 <p>{item.value}</p>
@@ -543,14 +544,14 @@ export function CaseStudyAhaSaas() {
         <section className="cs-block">
           <Seq n="06">Wireframes</Seq>
           <p>
-            Seven lo-fi frames for the job: sign in, customer, proposal, the electrical plan, the HA diagram, and the
-            task list. Structure only, before colour.
+            Pencil sketches of the main screens: sign in, customer, proposal, the electrical plan, the HA diagram, and
+            the task list. Structure only, before colour.
           </p>
           <figure className="cs-shot">
-            <a href="/assets/cs-aha-wireframes.png?v=2" target="_blank" rel="noreferrer">
+            <a href="/assets/cs-aha-wireframes.png?v=7" target="_blank" rel="noreferrer">
               <img
-                src="/assets/cs-aha-wireframes.png?v=2"
-                alt="AHA SaaS wireframes: sign in, customer list, customer details, proposals, electrical plan, HA diagram, and task list"
+                src="/assets/cs-aha-wireframes.png?v=7"
+                alt="Pencil sketch wireframes of AHA SaaS: sign in, customer list, customer details, proposals, electrical plan, HA diagram, and task list"
               />
             </a>
           </figure>
@@ -598,10 +599,10 @@ export function CaseStudyAhaSaas() {
         <section className="cs-block">
           <Seq n="09">What changed</Seq>
           <p>
-            After launch, teams reported about <strong>50% less operational work</strong>, and{" "}
-            <strong>4+ hours</strong> back per team. That time used to go into rebuilding the job across tools.
+            After launch, teams reported about <strong>50% faster operations</strong>, and{" "}
+            <strong>4+ hours</strong> saved per team. They also got <strong>real-time visibility</strong> on the job.
           </p>
-          <div className="cs-stats cs-stats-2">
+          <div className="cs-stats cs-stats-3">
             {outcomes.map((item) => (
               <article key={item.label}>
                 <p>{item.value}</p>
