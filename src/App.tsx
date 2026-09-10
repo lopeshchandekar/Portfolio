@@ -171,6 +171,30 @@ const stamps = [
   },
 ];
 
+const quotes = [
+  {
+    name: "Divyesh Panchal",
+    role: "AVP - Product Management | UX Consulting",
+    photo: "/assets/testi-divyesh.jpg",
+    initials: "DP",
+    text: "He consistently demonstrated a deep understanding of user-centred design principles and was able to translate them into intuitive and visually compelling interfaces. Lopesh’s ability to empathize with users, combined with his keen attention to detail, resulted in products that not only met but exceeded user expectations.",
+  },
+  {
+    name: "Chetan Mukhne",
+    role: "Ecommerce, Product Head @Vijay Sales",
+    photo: "/assets/testi-chetan.jpg",
+    initials: "CM",
+    text: "Working with Lopesh was a great experience. He brings clarity to complex product requirements and consistently delivers clean, well-structured designs that are easy for both users and developers to understand",
+  },
+  {
+    name: "Kushal Kalambi",
+    role: "COO @AHA Smart Homes",
+    photo: "/assets/testi-kushal.jpg",
+    initials: "KK",
+    text: "Lopesh played a key role in shaping our SaaS platform’s UX. He translated complex smart home workflows into a clear, intuitive system that our project managers and engineers could use efficiently. His structured approach and attention to detail significantly improved usability across the product",
+  },
+];
+
 const clientLogos = [
   { src: "/assets/logo-prescrip.png", alt: "prescrip" },
   { src: "/assets/logo-inox.png", alt: "INOX" },
@@ -231,6 +255,55 @@ function OffsetButton({
     <button type="button" className={`offset-btn ${className}`}>
       {inner}
     </button>
+  );
+}
+
+function TestimonialsSlider() {
+  const [index, setIndex] = useState(0);
+  const [dir, setDir] = useState(1);
+  const [imgFailed, setImgFailed] = useState(false);
+  const item = quotes[index];
+
+  const go = (step: number) => {
+    setDir(step);
+    setImgFailed(false);
+    setIndex((current) => (current + step + quotes.length) % quotes.length);
+  };
+
+  return (
+    <div className="testi-slider" data-reveal>
+      <button type="button" className="testi-arrow" aria-label="Previous testimonial" onClick={() => go(-1)}>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M11.5 3.5 6 9l5.5 5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      <div className={`testi-slide ${dir < 0 ? "is-prev" : "is-next"}`} key={item.name}>
+        <div className="testi-photo">
+          {imgFailed ? (
+            <span className="testi-initials">{item.initials}</span>
+          ) : (
+            <img src={item.photo} alt={item.name} onError={() => setImgFailed(true)} />
+          )}
+        </div>
+        <div className="testi-quote">
+          <span className="testi-mark" aria-hidden="true">
+            ”
+          </span>
+          <p>{item.text}</p>
+          <cite>
+            <strong>{item.name}</strong>
+            <em>{item.role}</em>
+          </cite>
+        </div>
+      </div>
+
+      <button type="button" className="testi-arrow" aria-label="Next testimonial" onClick={() => go(1)}>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M6.5 3.5 12 9l-5.5 5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+    </div>
   );
 }
 
@@ -436,51 +509,7 @@ function Home() {
           <h2>Testimonials</h2>
           <span>[Word on the street]</span>
         </div>
-        <div className="testi-rule" />
-        <div className="testi-grid">
-          <p className="kind-words" data-reveal>
-            Kind ♡ Words from
-            <br />
-            <span>Collaborators</span>
-          </p>
-          <div className="rule-v" />
-          <div className="quotes" data-reveal>
-            <blockquote>
-              <p>
-                He consistently demonstrated a deep understanding of user-centred design principles and was able to
-                translate them into intuitive and visually compelling interfaces. Lopesh’s ability to empathize with
-                users, combined with his keen attention to detail, resulted in products that not only met but exceeded
-                user expectations.
-              </p>
-              <cite>
-                <strong>Divyesh Panchal</strong>
-                <em>AVP - Product Management | UX Consulting</em>
-              </cite>
-            </blockquote>
-            <blockquote>
-              <p>
-                Working with Lopesh was a great experience. He brings clarity to complex product requirements and
-                consistently delivers clean, well-structured designs that are easy for both users and developers to
-                understand
-              </p>
-              <cite>
-                <strong>Chetan Mukhne</strong>
-                <em>Ecommerce, Product Head @Vijay Sales</em>
-              </cite>
-            </blockquote>
-            <blockquote>
-              <p>
-                Lopesh played a key role in shaping our SaaS platform’s UX. He translated complex smart home workflows
-                into a clear, intuitive system that our project managers and engineers could use efficiently. His
-                structured approach and attention to detail significantly improved usability across the product
-              </p>
-              <cite>
-                <strong>Kushal Kalambi</strong>
-                <em>COO @AHA Smart Homes</em>
-              </cite>
-            </blockquote>
-          </div>
-        </div>
+        <TestimonialsSlider />
       </section>
     </>
   );

@@ -1014,7 +1014,7 @@ button {
 }
 
 .testimonials {
-  padding: 64px 80px 96px;
+  padding: 64px 48px 96px;
   border-top: 1px solid var(--mercury);
 }
 
@@ -1023,6 +1023,7 @@ button {
   justify-content: center;
   align-items: baseline;
   gap: 8px;
+  margin-bottom: 48px;
 }
 
 .testi-head h2 {
@@ -1041,64 +1042,145 @@ button {
   text-transform: uppercase;
 }
 
-.testi-rule {
-  height: 1px;
-  background: var(--mercury);
-  margin: 40px 0 32px;
-}
-
-.testi-grid {
+.testi-slider {
   display: grid;
-  grid-template-columns: 257px 1px 1fr;
-  gap: 40px;
-  align-items: start;
+  grid-template-columns: 54px minmax(0, 1fr) 54px;
+  gap: 32px;
+  align-items: center;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
-.kind-words {
-  font-size: 28px;
-  line-height: 39px;
-}
-
-.kind-words span {
-  font-family: var(--display);
-  font-weight: 400;
-}
-
-.rule-v {
-  background: var(--mercury);
-  min-height: 176px;
-}
-
-.quotes {
+.testi-arrow {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--black);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  flex-shrink: 0;
+  transition: background 160ms ease-out, color 160ms ease-out;
+}
+
+.testi-arrow:hover,
+.testi-arrow:focus-visible {
+  background: var(--black);
+  color: var(--white);
+}
+
+.testi-slide {
+  display: grid;
+  grid-template-columns: minmax(200px, 320px) minmax(0, 1fr);
   gap: 48px;
+  align-items: center;
+  min-height: 320px;
 }
 
-.quotes p {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
+.testi-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #f3efe8;
+  display: grid;
+  place-items: center;
 }
 
-.quotes cite {
-  display: block;
-  margin-top: 20px;
-  font-style: normal;
+.testi-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.quotes strong {
-  display: block;
-  color: #4d4afc;
-  font-size: 11px;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-}
-
-.quotes em {
-  font-style: normal;
+.testi-initials {
+  font-family: var(--display);
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   color: var(--grey-50);
-  font-size: 13px;
+}
+
+.testi-quote {
+  position: relative;
+  min-height: 220px;
+}
+
+.testi-mark {
+  position: absolute;
+  right: 0;
+  top: -12px;
+  font-family: var(--display);
+  font-size: 180px;
+  line-height: 0.7;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+  user-select: none;
+}
+
+.testi-quote p {
+  position: relative;
+  margin: 0;
+  max-width: 34em;
+  color: var(--grey-20);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.testi-quote cite {
+  position: relative;
+  display: block;
+  margin-top: 28px;
+  font-style: normal;
+}
+
+.testi-quote strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.testi-quote em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.js-reveal .testi-slide.is-next {
+  animation: testi-in-next 0.48s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.js-reveal .testi-slide.is-prev {
+  animation: testi-in-prev 0.48s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes testi-in-next {
+  from {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes testi-in-prev {
+  from {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .site-footer {
@@ -1226,14 +1308,17 @@ button {
     animation: none;
     opacity: 0;
   }
+
+  .js-reveal .testi-slide.is-next,
+  .js-reveal .testi-slide.is-prev {
+    animation: none;
+  }
 }
 
 @media (max-width: 1100px) {
   .hero,
   .work,
   .stamps,
-  .testi-grid,
-  .quotes,
   .job {
     grid-template-columns: 1fr;
   }
@@ -1369,12 +1454,44 @@ button {
     text-align: left;
   }
 
-  .rule-v {
-    display: none;
+  .testi-slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 20px;
   }
 
-  .testi-grid {
+  .testi-slide {
+    width: 100%;
+    order: -1;
+    grid-template-columns: 1fr;
     gap: 24px;
+    min-height: 0;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .testi-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .testi-photo {
+    width: min(220px, 70vw);
+  }
+
+  .testi-quote {
+    min-height: 0;
+  }
+
+  .testi-mark {
+    font-size: 120px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .testi-quote p {
+    margin: 0 auto;
   }
 }
 
