@@ -5,22 +5,20 @@ import { CaseStudyInox } from "./CaseStudyInox";
 import { CaseStudyPrescrip } from "./CaseStudyPrescrip";
 import { CaseStudyEpix } from "./CaseStudyEpix";
 import { CaseStudyAcrossfit } from "./CaseStudyAcrossfit";
+import { CaseStudyVise } from "./CaseStudyVise";
 
 const works = [
   {
-    id: "aha-saas",
-    kicker: "Internal SaaS · Smart Home Operations",
-    title: "AHA SaaS System",
-    body: "The internal tool AHA’s teams use to run a smart-home job, from first lead to handover. Sales send a proposal PDF on WhatsApp. Install starts only after payment.",
-    meta: "Internal operations SaaS · Sr. Product Designer",
-    tags: ["Role-based UX", "HA Diagram", "Design System"],
+    id: "vise",
+    kicker: "Website · Brand",
+    title: "VijaySales- Vise Brand Website",
+    body: "Brand website for Vijay Sales’ house electronics line: TVs, ACs, washing machines, and refrigerators on vise.in. Shop online or find a store.",
+    meta: "Brand Website · 1 week · Sr. UI/UX Designer",
+    tags: ["Brand Website", "Ecommerce UX", "Store Locator"],
     cta: "View Case Study",
-    stats: [
-      { value: "50%", label: "Less operational work" },
-      { value: "4+", label: "Hours saved per team" },
-    ],
-    visual: "saas" as const,
-    href: "#aha-saas",
+    href: "#vise",
+    visual: "vise" as const,
+    teaser: "Vijay Sales’ house electronics brand: TVs, ACs, and home appliances on vise.in.",
     featured: true,
   },
   {
@@ -40,6 +38,22 @@ const works = [
     featured: true,
   },
   {
+    id: "aha-saas",
+    kicker: "Internal SaaS · Smart Home Operations",
+    title: "AHA SaaS System",
+    body: "The internal tool AHA’s teams use to run a smart-home job, from first lead to handover. Sales send a proposal PDF on WhatsApp. Install starts only after payment.",
+    meta: "Internal operations SaaS · Sr. Product Designer",
+    tags: ["Role-based UX", "HA Diagram", "Design System"],
+    cta: "View Case Study",
+    stats: [
+      { value: "50%", label: "Less operational work" },
+      { value: "4+", label: "Hours saved per team" },
+    ],
+    visual: "saas" as const,
+    href: "#aha-saas",
+    featured: true,
+  },
+  {
     id: "aha-landing",
     kicker: "Website · Growth Design",
     title: "AHA Smart Home Website",
@@ -54,7 +68,7 @@ const works = [
     ],
     visual: "landing" as const,
     href: "#aha-landing",
-    featured: true,
+    teaser: "Public website for homeowners: understand the offering, trust the brand, then enquire.",
   },
   {
     id: "prescrip",
@@ -115,6 +129,7 @@ const works = [
     ],
     visual: "acrossfit" as const,
     teaser: "Today’s WOD on home, log the score after class, then PRs and a leaderboard.",
+    hidden: true,
   },
 ];
 
@@ -252,6 +267,7 @@ function WorkVisual({ type }: { type: (typeof works)[number]["visual"] }) {
     epix: { src: "/assets/img-epix-cinemas.png", alt: "Epix Cinemas website on a laptop" },
     maruti: { src: "/assets/img-maruti.png?v=2", alt: "INOX PVR movie booking and F&B app screens" },
     acrossfit: { src: "/assets/img-acrossfit.png", alt: "Acrossfit Kaali workout dashboard and get started screens" },
+    vise: { src: "/assets/img-vise-website.png", alt: "Vise brand website homepage on desktop" },
   };
 
   if (type in shots && shots[type]) {
@@ -307,7 +323,7 @@ function Home() {
       </h2>
       <div className="works">
         {works
-          .filter((work) => work.featured)
+          .filter((work) => work.featured && !work.hidden)
           .map((work) => (
           <article className="work" key={work.id} id={work.id} data-reveal>
             <div className="work-copy">
@@ -329,14 +345,16 @@ function Home() {
                   </OffsetButton>
                 </div>
               </div>
-              <div className="stats">
-                {work.stats.map((stat) => (
-                  <div className="stat" key={stat.label}>
-                    <b>{stat.value}</b>
-                    <span>{stat.label}</span>
-                  </div>
-                ))}
-              </div>
+              {work.stats?.length ? (
+                <div className="stats">
+                  {work.stats.map((stat) => (
+                    <div className="stat" key={stat.label}>
+                      <b>{stat.value}</b>
+                      <span>{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
             </div>
             <WorkVisual type={work.visual} />
           </article>
@@ -347,7 +365,7 @@ function Home() {
         <h2 className="more-heading">More work</h2>
         <div className="more-works">
           {works
-            .filter((work) => !work.featured)
+            .filter((work) => !work.featured && !work.hidden)
             .map((work) => (
               <a className="more-work" key={work.id} href={work.href} data-reveal>
                 <WorkVisual type={work.visual} />
@@ -543,6 +561,7 @@ export default function App() {
   const showPrescrip = hash === "#prescrip-case";
   const showEpix = hash === "#epix";
   const showAcrossfit = hash === "#acrossfit";
+  const showVise = hash === "#vise";
 
   return (
     <div id="top">
@@ -559,6 +578,8 @@ export default function App() {
         <CaseStudyEpix />
       ) : showAcrossfit ? (
         <CaseStudyAcrossfit />
+      ) : showVise ? (
+        <CaseStudyVise />
       ) : showAbout ? (
         <About />
       ) : (
