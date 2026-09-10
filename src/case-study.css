@@ -31,16 +31,17 @@
   max-width: 18ch;
   text-align: center;
   color: #fff;
-  font-family: var(--serif);
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 200;
-  line-height: 1.1;
+  font-family: var(--display);
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .cs-web .cs-hero h1,
 .cs-web .cs-block h2,
 .cs-web .cs-block .cs-stats p {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-weight: 400;
 }
 
@@ -75,9 +76,10 @@
 .cs-block h2,
 .cs-journey .cs-label {
   margin: 0 0 20px;
-  font-family: var(--serif);
-  font-size: clamp(28px, 4vw, 42px);
-  font-weight: 200;
+  font-family: var(--display);
+  font-size: clamp(28px, 2.64vw, 38px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .cs-label {
@@ -573,9 +575,10 @@
 .cs-block .cs-stats p {
   margin: 0;
   color: var(--red);
-  font-family: var(--serif);
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 200;
+  font-family: var(--display);
+  font-size: clamp(24px, 2.2vw, 32px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1.1;
 }
 
@@ -919,7 +922,7 @@
 }
 
 .cs-inox .cs-block .cs-stats p {
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(24px, 2.2vw, 32px);
 }
 
 .cs-inox .cs-block p + p {

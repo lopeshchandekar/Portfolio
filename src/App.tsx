@@ -138,30 +138,35 @@ const stamps = [
     img: "/assets/skill-research.png",
     title: "Research",
     phase: "Discovery Phase",
+    line: "Pehle suno, phir banao",
     copy: "Competitor Analysis, User Research, Ideation, Pain Point Discovery",
   },
   {
     img: "/assets/skill-define.png",
     title: "Define",
     phase: "Synthesis Phase",
+    line: "Problem saaf, toh aadha kaam ho gaya",
     copy: "User Personas, Problem Statements, Key Insights, User Needs",
   },
   {
     img: "/assets/skill-design.png",
     title: "Design Process",
     phase: "Creation Phase",
+    line: "Pehle kagaz pe, phir screen pe",
     copy: "Scenario Brainstorming, Wireframing, User Flow Creation, UX Design",
   },
   {
     img: "/assets/skill-prototype.png",
     title: "Prototype",
     phase: "Build Phase",
+    line: "Chala ke dikhao, sirf batao mat",
     copy: "High-fidelity Wireframes, Interactive Prototyping, AI-Driven Features, UI Kit Development",
   },
   {
     img: "/assets/skill-test.png",
     title: "Test",
     phase: "Validation Phase",
+    line: "User bole toh sach, warna sirf andaza",
     copy: "Usability Testing, A/B Testing, Feedback Analysis, Iterative Improvements",
   },
 ];
@@ -308,8 +313,8 @@ function Home() {
         </a>
       </section>
 
-      <section className="clients" aria-label="Clients">
-        <h2>Clients</h2>
+      <section className="clients" aria-label="Trusted by">
+        <h2>Trusted by</h2>
         <div className="logo-ticker">
           <div className="logo-track">
             <ClientLogoRow />
@@ -318,9 +323,10 @@ function Home() {
         </div>
       </section>
 
-      <h2 className="section-title" id="work" data-reveal>
-        Selected Works
-      </h2>
+      <div className="section-head" id="work" data-reveal>
+        <p className="eyebrow">6 case studies</p>
+        <h2 className="section-title">Selected Works</h2>
+      </div>
       <div className="works">
         {works
           .filter((work) => work.featured && !work.hidden)
@@ -388,6 +394,7 @@ function Home() {
             <article className="stamp" key={item.title} data-reveal>
               <img src={item.img} alt="" width={300} height={300} />
               <h3>{item.title}</h3>
+              <p className="stamp-line">{item.line}</p>
               <p className="phase">{item.phase}</p>
               <p>{item.copy}</p>
             </article>
@@ -438,6 +445,18 @@ function Home() {
           </p>
           <div className="rule-v" />
           <div className="quotes" data-reveal>
+            <blockquote>
+              <p>
+                He consistently demonstrated a deep understanding of user-centred design principles and was able to
+                translate them into intuitive and visually compelling interfaces. Lopesh’s ability to empathize with
+                users, combined with his keen attention to detail, resulted in products that not only met but exceeded
+                user expectations.
+              </p>
+              <cite>
+                <strong>Divyesh Panchal</strong>
+                <em>AVP - Product Management | UX Consulting</em>
+              </cite>
+            </blockquote>
             <blockquote>
               <p>
                 Working with Lopesh was a great experience. He brings clarity to complex product requirements and

@@ -10,9 +10,9 @@
   --red: #ff3a39;
   --red-tag: #f00b0e;
   --lime: #e4ff98;
-  --serif: "PP Editorial Old", "Instrument Serif", "Times New Roman", serif;
-  --sans: Inter, "Helvetica Neue", Arial, sans-serif;
-  --radio: "Radio Canada", Inter, sans-serif;
+  --display: Archivo, "Helvetica Neue", Arial, sans-serif;
+  --sans: Archivo, "Helvetica Neue", Arial, sans-serif;
+  --radio: "Radio Canada", Archivo, sans-serif;
 }
 
 @font-face {
@@ -136,9 +136,9 @@ button {
 }
 
 .brand em {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-style: normal;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 .nav-links {
@@ -274,24 +274,24 @@ button {
 
 .hero h1 {
   margin: 16px 0 0;
-  font-family: var(--serif);
-  font-size: clamp(52px, 6.5vw, 88px);
-  font-weight: 200;
+  font-family: var(--display);
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 400;
   font-style: normal;
-  line-height: 1.05;
-  letter-spacing: 0.96px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .hero-lead {
   margin: 8px 0 0;
   max-width: none;
   color: var(--grey-20);
-  font-family: var(--serif);
-  font-size: clamp(52px, 6.5vw, 88px);
-  font-weight: 200;
+  font-family: var(--display);
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 400;
   font-style: normal;
-  line-height: 1.05;
-  letter-spacing: 0.96px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .hero-outcome {
@@ -346,6 +346,7 @@ button {
 }
 
 .offset-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -357,9 +358,35 @@ button {
   color: var(--black);
   box-shadow: 4px 4px 0 0 #000;
   border: 0;
+  overflow: hidden;
   font-size: 13px;
   letter-spacing: 0.56px;
   transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+}
+
+/* Light sweeps across the button on a loop, then waits off the right edge. */
+.offset-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 36%;
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  transform: translateX(-130%);
+  animation: btn-shine 4.2s ease-in-out infinite;
+}
+
+@keyframes btn-shine {
+  0% {
+    transform: translateX(-130%);
+  }
+
+  40%,
+  100% {
+    transform: translateX(330%);
+  }
 }
 
 .offset-btn img,
@@ -485,9 +512,9 @@ button {
 .clients h2 {
   margin: 0;
   flex: 0 0 auto;
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 18px;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 1;
 }
 
@@ -553,13 +580,24 @@ button {
   }
 }
 
-.section-title {
+.section-head {
   margin: 80px 0 48px;
+  scroll-margin-top: 64px;
   text-align: center;
-  font-family: var(--serif);
-  font-size: clamp(48px, 5vw, 85px);
-  font-weight: 200;
-  line-height: 1.15;
+}
+
+.section-head .eyebrow {
+  margin: 0 0 8px;
+}
+
+.section-title {
+  margin: 0;
+  text-align: center;
+  font-family: var(--display);
+  font-size: clamp(32px, 2.9vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
 }
 
 .works {
@@ -593,9 +631,10 @@ button {
 
 .work h3 {
   margin: 0;
-  font-family: var(--serif);
-  font-size: clamp(32px, 3.2vw, 48px);
-  font-weight: 200;
+  font-family: var(--display);
+  font-size: clamp(28px, 2.64vw, 38px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1.2;
 }
 
@@ -734,10 +773,11 @@ button {
 .more-heading {
   max-width: 1824px;
   margin: 0 auto 32px;
-  font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 200;
-  line-height: 1.15;
+  font-family: var(--display);
+  font-size: clamp(32px, 2.9vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
 }
 
 .more-works {
@@ -781,9 +821,9 @@ button {
 
 .more-work h3 {
   margin: 0;
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 24px;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -847,10 +887,11 @@ button {
   position: relative;
   margin: 0 0 56px;
   text-align: center;
-  font-family: var(--serif);
-  font-size: clamp(48px, 5.5vw, 85px);
-  font-weight: 200;
-  line-height: 1.15;
+  font-family: var(--display);
+  font-size: clamp(32px, 2.9vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
 }
 
 .stamps {
@@ -877,12 +918,19 @@ button {
 
 .stamp h3 {
   margin: 16px 0 0;
-  font-size: 24px;
-  font-weight: 300;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.stamp .stamp-line {
+  margin: 6px 0 0;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .stamp .phase {
-  margin: 4px 0 0;
+  margin: 10px 0 0;
   color: var(--grey-50);
   font-size: 14px;
   letter-spacing: 0.56px;
@@ -911,9 +959,10 @@ button {
 
 .experience-head h2 {
   margin: 0;
-  font-family: var(--serif);
-  font-size: clamp(48px, 5vw, 85px);
-  font-weight: 200;
+  font-family: var(--display);
+  font-size: clamp(32px, 2.9vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1;
 }
 
@@ -978,9 +1027,11 @@ button {
 
 .testi-head h2 {
   margin: 0;
-  font-family: var(--serif);
-  font-size: clamp(48px, 5vw, 85px);
-  font-weight: 200;
+  font-family: var(--display);
+  font-size: clamp(32px, 2.9vw, 42px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
 }
 
 .testi-head span {
@@ -1009,8 +1060,8 @@ button {
 }
 
 .kind-words span {
-  font-family: var(--serif);
-  font-weight: 200;
+  font-family: var(--display);
+  font-weight: 400;
 }
 
 .rule-v {
@@ -1020,7 +1071,7 @@ button {
 
 .quotes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 48px;
 }
 
@@ -1122,9 +1173,10 @@ button {
 }
 
 .about-page h1 {
-  font-family: var(--serif);
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 200;
+  font-family: var(--display);
+  font-size: clamp(32px, 2.9vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1.1;
 }
 
@@ -1147,6 +1199,18 @@ button {
       opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
       transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
+
+  /* Stamps deal in one at a time, so they rise further and settle from slightly small. */
+  .js-reveal .stamps [data-reveal] {
+    transform: translateY(38px) scale(0.96);
+  }
+
+  .js-reveal .stamps [data-reveal].is-visible {
+    transform: none;
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1156,6 +1220,11 @@ button {
   .offset-btn {
     animation: none;
     transition: none;
+  }
+
+  .offset-btn::after {
+    animation: none;
+    opacity: 0;
   }
 }
 
@@ -1189,12 +1258,6 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .hero h1,
-  .hero-lead {
-    font-size: clamp(40px, 9vw, 72px);
-    line-height: 1.05;
-  }
-
   .hero-copy {
     height: auto;
     padding: 0 0 24px;
@@ -1224,7 +1287,7 @@ button {
     padding-right: 12px;
   }
 
-  .section-title {
+  .section-head {
     margin: 48px 0 24px;
   }
 
