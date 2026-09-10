@@ -3,9 +3,9 @@ import "./case-study.css";
 
 const live = "https://www.vise.in/";
 const proto =
-  "https://www.figma.com/proto/rFzQwtCuqFSTxXfq8Tmove/VISE---Banners?node-id=2003-12157&t=hdVPka8od8GbTr1E-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2003%3A12157";
+  "https://www.figma.com/proto/JGTdHsh42v6cW28yGVUYH3/VISE---Banners--Copy-?node-id=2003-12157&t=HVTTMgdTEESkDlEJ-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2003%3A12157";
 const protoResponsive =
-  "https://www.figma.com/proto/rFzQwtCuqFSTxXfq8Tmove/VISE---Banners?node-id=2003-3623&t=Y8zVoJIOXy1Dp52z-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2003%3A3623&show-proto-sidebar=1";
+  "https://www.figma.com/proto/JGTdHsh42v6cW28yGVUYH3/VISE---Banners--Copy-?node-id=2003-3623&t=GyMfcmR4EG0jT3aW-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2003%3A3623&show-proto-sidebar=1";
 const protoEmbed =
   "https://embed.figma.com/proto/m0xijXwYF6YpFsGXeiRylP/Viay-Sales---Vise?node-id=4066-13174&scaling=min-zoom&content-scaling=fixed&page-id=154%3A266&starting-point-node-id=4066%3A13174&embed-host=share";
 
