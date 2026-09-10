@@ -11,7 +11,7 @@ const outcomes = [
 ];
 
 const facts = [
-  { label: "Role", value: "UI/UX Researcher & Designer" },
+  { label: "Role", value: "Sr. UI/UX Designer" },
   { label: "Duration", value: "4 months" },
   { label: "Platform", value: "iOS & Android" },
 ];

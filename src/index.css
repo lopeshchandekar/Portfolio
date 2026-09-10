@@ -759,9 +759,10 @@ button {
 }
 
 .more-work .work-visual {
-  min-height: 180px;
-  height: 180px;
-  max-height: 180px;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: 912 / 611;
 }
 
 .more-work-copy {
@@ -1290,12 +1291,6 @@ button {
 
   .more-works {
     grid-template-columns: 1fr;
-  }
-
-  .more-work .work-visual {
-    height: 200px;
-    min-height: 200px;
-    max-height: 200px;
   }
 
   .job {
