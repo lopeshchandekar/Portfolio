@@ -7,7 +7,7 @@ const proto =
 const protoResponsive =
   "https://www.figma.com/proto/JGTdHsh42v6cW28yGVUYH3/VISE---Banners--Copy-?node-id=2003-3623&t=GyMfcmR4EG0jT3aW-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2003%3A3623&show-proto-sidebar=1";
 const protoEmbed =
-  "https://embed.figma.com/proto/JGTdHsh42v6cW28yGVUYH3/VISE---Banners--Copy-?node-id=2003-3623&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2003%3A3623&embed-host=share";
+  "https://embed.figma.com/proto/JGTdHsh42v6cW28yGVUYH3/VISE---Banners--Copy-?node-id=2003-12157&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2003%3A12157&embed-host=share";
 
 const overview = [
   { label: "Client", value: "Vijay Sales" },
