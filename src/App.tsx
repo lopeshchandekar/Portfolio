@@ -174,7 +174,7 @@ const stamps = [
 const quotes = [
   {
     name: "Divyesh Panchal",
-    role: "AVP - Product Management | UX Consulting",
+    role: "AVP - Project Lead | UX Consulting @HDFC Bank",
     photo: "/assets/testi-divyesh.jpg",
     initials: "DP",
     text: "He consistently demonstrated a deep understanding of user-centred design principles and was able to translate them into intuitive and visually compelling interfaces. Lopesh’s ability to empathize with users, combined with his keen attention to detail, resulted in products that not only met but exceeded user expectations.",
