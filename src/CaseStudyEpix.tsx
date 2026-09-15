@@ -13,6 +13,8 @@ const protoWebEmbed =
 const protoMobileEmbed =
   "https://embed.figma.com/proto/iNIh5k8iHRMSPulB4LJ1ws/EPIX-Cinema---Responsive-Hompeage---App---Final?node-id=3233-10&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=885-5&hide-ui=1&embed-host=share";
 
+const live = "https://www.epixcinemas.com/";
+
 const outcomes = [
   { value: "15%", label: "Sales ↑ after launch" },
   { value: "2M+", label: "App downloads" },
@@ -132,6 +134,7 @@ export function CaseStudyEpix() {
           <div className="cs-proto-row">
             <Proto href={protoWeb}>Web Prototype</Proto>
             <Proto href={protoMobile}>Mobile Prototype</Proto>
+            <Proto href={live}>Live site</Proto>
           </div>
         </div>
 
@@ -178,6 +181,7 @@ export function CaseStudyEpix() {
             <div className="cs-proto-row">
               <Proto href={protoWeb}>Web Prototype</Proto>
               <Proto href={protoMobile}>Mobile Prototype</Proto>
+              <Proto href={live}>Live site</Proto>
             </div>
           </div>
         </section>
