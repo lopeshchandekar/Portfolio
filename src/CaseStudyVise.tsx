@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 import "./case-study.css";
 
 const live = "https://www.vise.in/";
@@ -19,7 +19,7 @@ const overview = [
 const problems = [
   "The old home led with a campaign, not a way to find a TV by size or an AC by ton.",
   "Shop Now existed, but the path to Vijay Sales was not the job of the page.",
-  "Vise could look like a nameless online label if Vijay Sales stores were not in the story.",
+  "Without a clear connection to Vijay Sales’ trusted retail network, Vise risked being perceived as an unfamiliar online-only brand. The absence of an in-store pickup option also limited customer convenience and weakened the omnichannel experience.",
 ];
 
 const goals = [
@@ -78,33 +78,49 @@ const approach = [
   },
 ];
 
-const shopBy = [
-  { label: "TV size", h: 90, tone: "cyan" },
-  { label: "AC ton", h: 72, tone: "peach" },
-  { label: "Washer kg", h: 50, tone: "lilac" },
-  { label: "Fridge", h: 34, tone: "pink" },
+const shopperTraits = [
+  {
+    kicker: "Core store base",
+    title: "40+ loyal shoppers",
+    items: [
+      { tone: "cyan", label: "Already know Vijay Sales", icon: "person" },
+      { tone: "peach", label: "Want store demos and staff help", icon: "store" },
+      { tone: "mint", label: "Care about trust, warranty, and service", icon: "shield" },
+    ],
+  },
+  {
+    kicker: "Growth audience",
+    title: "Younger digital shoppers",
+    items: [
+      { tone: "peach", label: "Find and research Vise online", icon: "laptop" },
+      { tone: "yellow", label: "Compare price, specs, and reviews", icon: "search" },
+      { tone: "lilac", label: "May check the site, then buy in store", icon: "cart" },
+    ],
+  },
 ];
 
-const buyHow = [
-  { label: "Store", h: 86, tone: "lilac" },
-  { label: "Site then buy", h: 62, tone: "cyan" },
-  { label: "Find store", h: 38, tone: "peach" },
+const compareBy = [
+  { tone: "yellow", label: "TV", spec: "Screen size, resolution, smart platform", icon: "tv" },
+  { tone: "blue", label: "AC", spec: "Tonnage, energy rating, room size", icon: "ac" },
+  { tone: "mint", label: "Washing machine", spec: "Capacity, type, wash features", icon: "washer" },
+  { tone: "peach", label: "Refrigerator", spec: "Capacity, door type, energy rating", icon: "fridge" },
 ];
 
-const consumerTypes = [
-  { label: "First look at Vise", size: "md", tone: "mint" },
-  { label: "Site then store", size: "sm", tone: "lilac" },
-  { label: "Replacing a TV or AC", size: "hero", tone: "blue" },
+const shopperPath = [
+  { n: "1", tone: "cyan", label: "Discover Vise" },
+  { n: "2", tone: "lilac", label: "Compare models" },
+  { n: "3", tone: "mint", label: "Check reviews & specs" },
+  { n: "4", tone: "yellow", label: "Verify store, delivery or pickup" },
+  { n: "5", tone: "peach", label: "Buy online or in store" },
 ];
 
-const productTypes = [
-  { label: "Televisions", size: "xl", tone: "yellow" },
-  { label: "Air conditioners", size: "lg", tone: "blue" },
-  { label: "Washing machines", size: "md", tone: "mint" },
-  { label: "Refrigerators", size: "md", tone: "peach" },
-  { label: "Find Store", size: "sm", tone: "lilac" },
-  { label: "EMI, exchange", size: "sm", tone: "pink" },
-  { label: "Buy on Vijay Sales", size: "md", tone: "cyan" },
+const shopperNeeds = [
+  { tone: "cyan", label: "Vise + Vijay Sales trust", icon: "shield" },
+  { tone: "yellow", label: "Easy product comparison", icon: "scale" },
+  { tone: "yellow", label: "Simple specifications", icon: "doc" },
+  { tone: "lilac", label: "EMI, exchange, and warranty", icon: "list" },
+  { tone: "peach", label: "Store and pickup nearby", icon: "pin" },
+  { tone: "peach", label: "A clear path to buy", icon: "cart" },
 ];
 
 const insights = [
@@ -287,19 +303,94 @@ function Desktop({ src, alt, caption }: { src: string; alt: string; caption: str
   );
 }
 
-function BarChart({ items }: { items: { label: string; h: number; tone: string }[] }) {
-  return (
-    <div className="cs-vise-bars">
-      {items.map((item) => (
-        <figure key={item.label}>
-          <span className="cs-vise-bars-track">
-            <i className={item.tone} style={{ height: `${item.h}%` }} />
-          </span>
-          <figcaption>{item.label}</figcaption>
-        </figure>
-      ))}
-    </div>
-  );
+function ShopIco({ name }: { name: string }) {
+  const icons: Record<string, ReactNode> = {
+    person: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="8" r="3.2" />
+        <path d="M5.8 19a6.2 6.2 0 0 1 12.4 0" />
+      </svg>
+    ),
+    store: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 10.5 6 7h12l2 3.5V20H4v-9.5z" />
+        <path d="M4 10.5h16M9 20v-6h6v6" />
+      </svg>
+    ),
+    shield: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3 5 6v6c0 4.2 2.8 7.4 7 8.5 4.2-1.1 7-4.3 7-8.5V6l-7-3z" />
+      </svg>
+    ),
+    laptop: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="5" width="16" height="11" rx="1.5" />
+        <path d="M2 19h20" />
+      </svg>
+    ),
+    search: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="6" />
+        <path d="m16 16 4 4" />
+      </svg>
+    ),
+    cart: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="9" cy="20" r="1.2" />
+        <circle cx="17" cy="20" r="1.2" />
+        <path d="M3 4h2l2.2 11h10.3L20 8H7" />
+      </svg>
+    ),
+    tv: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="6" width="18" height="12" rx="2" />
+        <path d="M8 21h8M12 18v3" />
+      </svg>
+    ),
+    ac: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="5" width="18" height="8" rx="1.5" />
+        <path d="M7 17v2M12 16v4M17 17v2" />
+      </svg>
+    ),
+    washer: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="3" width="14" height="18" rx="2" />
+        <circle cx="12" cy="13" r="4" />
+        <path d="M8 6h.01M10.5 6h5" />
+      </svg>
+    ),
+    fridge: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="6" y="3" width="12" height="18" rx="1.5" />
+        <path d="M6 10h12M9 6v2M9 13v3" />
+      </svg>
+    ),
+    scale: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 4v16M7 20h10M12 7l-6 8h6M12 7l6 8h-6" />
+      </svg>
+    ),
+    doc: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M7 3h7l5 5v13H7V3z" />
+        <path d="M14 3v5h5M9 13h6M9 17h4" />
+      </svg>
+    ),
+    list: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" />
+      </svg>
+    ),
+    pin: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z" />
+        <circle cx="12" cy="10" r="2.2" />
+      </svg>
+    ),
+  };
+
+  return icons[name] ?? null;
 }
 
 function ArchNode({ children }: { children: string }) {
@@ -441,34 +532,74 @@ export function CaseStudyVise() {
 
         <section className="cs-block">
           <Seq n="03">The shopper</Seq>
-          <p>Not interview counts. How this range is shopped, and what vise.in had to hold.</p>
-          <div className="cs-vise-research">
-            <div>
-              <h3>What they shop by</h3>
-              <BarChart items={shopBy} />
-              <h3>How they buy</h3>
-              <BarChart items={buyHow} />
+          <p>How people compare Vise products online, then buy at Vijay Sales or pick them up in store.</p>
+          <div className="cs-vise-shopper">
+            <div className="cs-vise-shopper-top">
+              <article className="cs-vise-shopper-card mint">
+                <h3>Shopper segments</h3>
+                <div className="cs-vise-shopper-cols">
+                  {shopperTraits.map((group) => (
+                    <div key={group.title}>
+                      <p className="cs-vise-shopper-kicker">{group.kicker}</p>
+                      <p className="cs-vise-shopper-title">{group.title}</p>
+                      <ul>
+                        {group.items.map((item) => (
+                          <li key={item.label}>
+                            <span className={`cs-vise-shopper-ico ${item.tone}`} aria-hidden="true">
+                              <ShopIco name={item.icon} />
+                            </span>
+                            {item.label}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </article>
+              <article className="cs-vise-shopper-card lilac">
+                <h3>What they compare</h3>
+                <ul className="cs-vise-compare">
+                  {compareBy.map((item) => (
+                    <li key={item.label}>
+                      <span className={`cs-vise-shopper-ico ${item.tone}`} aria-hidden="true">
+                        <ShopIco name={item.icon} />
+                      </span>
+                      <b>{item.label}</b>
+                      <span>{item.spec}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="cs-vise-compare-foot">
+                  <b>Across categories:</b> Price · Reviews · Warranty · Service
+                </p>
+              </article>
             </div>
-            <div>
-              <h3>Type of shopper</h3>
-              <div className="cs-vise-people cs-vise-bubbles">
-                {consumerTypes.map((item) => (
-                  <span key={item.label} className={`${item.size} ${item.tone}`}>
-                    {item.label}
-                  </span>
+
+            <div className="cs-vise-shopper-path-wrap">
+              <h3>Typical shopping journey</h3>
+              <ol className="cs-vise-path">
+                {shopperPath.map((step) => (
+                  <li key={step.n} className={`cs-vise-path-card ${step.tone}`}>
+                    <span>{step.n}</span>
+                    {step.label}
+                  </li>
                 ))}
-              </div>
+              </ol>
             </div>
-            <div>
-              <h3>The range</h3>
-              <div className="cs-vise-cluster cs-vise-bubbles">
-                {productTypes.map((item) => (
-                  <span key={item.label} className={`${item.size} ${item.tone}`}>
+
+            <article className="cs-vise-shopper-card mint cs-vise-needs-card">
+              <h3>What vise.in needed to support</h3>
+              <ul className="cs-vise-needs">
+                {shopperNeeds.map((item) => (
+                  <li key={item.label}>
+                    <span className={`cs-vise-shopper-ico ${item.tone}`} aria-hidden="true">
+                      <ShopIco name={item.icon} />
+                    </span>
                     {item.label}
-                  </span>
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ul>
+            </article>
           </div>
         </section>
 
