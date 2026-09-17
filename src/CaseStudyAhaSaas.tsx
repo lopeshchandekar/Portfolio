@@ -70,21 +70,21 @@ const userRoles = [
 const decisions = [
   {
     n: "01",
-    title: "Six dashboards, not one home",
-    decision: "Each role gets its own home on the same job.",
-    why: "A consultant placing devices on a floor plan and an engineer on site do not need the same screen. One shared dashboard would bury both.",
+    title: "Separate dashboards for each role",
+    decision: "Each role gets its own dashboard.",
+    why: "Sales, engineers, installers, and accounts all need different information and actions.",
   },
   {
     n: "02",
-    title: "The PDF still goes on WhatsApp",
-    decision: "The SaaS generates the proposal PDF. Sales still sends it in chat.",
-    why: "Homeowners already talk on WhatsApp. A client portal would be a login they would not use. The product is for AHA staff.",
+    title: "Keep customer communication on WhatsApp",
+    decision: "The system generates the proposal PDF, and sales shares it on WhatsApp.",
+    why: "Customers already use WhatsApp, so a separate portal would add unnecessary steps.",
   },
   {
     n: "03",
-    title: "Install follows the money",
-    decision: "If accounts shows amount pending, those devices stay off the wall.",
-    why: "Before, install could start while payment sat in a separate Excel. That is now a product rule, not a reminder in a group chat.",
+    title: "Link installation with payment status",
+    decision: "Installation progress depends on payment status.",
+    why: "Earlier, payment data was kept separately in Excel, which could lead to work starting before payment was cleared.",
   },
 ];
 
@@ -449,10 +449,7 @@ export function CaseStudyAhaSaas() {
 
         <section className="cs-block">
           <Seq n="02">What I chose</Seq>
-          <p>
-            After sitting with each role on a live job, I made three calls. They decided the product. Everything else is
-            screens.
-          </p>
+          <p>After observing how each team worked, I made three key decisions that shaped the product.</p>
           <div className="cs-decisions">
             {decisions.map((item) => (
               <article key={item.n}>
