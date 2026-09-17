@@ -326,7 +326,7 @@ function Header() {
         <a href="#about">About me</a>
         <a
           className="resume-link"
-          href="/Lopesh_A_Chandekar_Resume.pdf"
+          href="/Lopesh_A_Chandekar_Resume.pdf?v=3"
           download="Lopesh_A_Chandekar_Resume.pdf"
         >
           <span className="resume-text">Download Resume</span>
@@ -546,7 +546,7 @@ function Footer() {
       <div className="footer-cta">
         <OffsetButton
           className="white"
-          href="/Lopesh_A_Chandekar_Resume.pdf"
+          href="/Lopesh_A_Chandekar_Resume.pdf?v=3"
           download="Lopesh_A_Chandekar_Resume.pdf"
           icon="/assets/icon-download-lg.svg"
         >
