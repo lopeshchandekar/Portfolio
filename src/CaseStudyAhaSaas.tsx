@@ -391,18 +391,14 @@ export function CaseStudyAhaSaas() {
             ))}
           </dl>
           <p>
-            AHA designs smart homes: hardware, software, and installation. This case study is the{" "}
-            <strong>internal SaaS</strong> their teams use to run a job. Homeowners never log in. The public website is
-            a separate case study.
+            AHA Smart Homes manages the complete lifecycle of smart home projects from planning and procurement to
+            installation and handover. We designed an internal SaaS platform from the ground up to bring these operations
+            into one connected system, helping different teams manage projects, responsibilities, inventory, and progress
+            more efficiently.
           </p>
-          <p>We built the first version from scratch.</p>
           <div className="cs-role">
             <h3>My Role</h3>
             <p className="cs-role-title">Sr. Product Designer</p>
-            <p>
-              I led research, flows, role dashboards, the HA diagram, and the prototype. The hard problem was six
-              dashboards for six roles on one job.
-            </p>
           </div>
         </section>
 
@@ -416,8 +412,10 @@ export function CaseStudyAhaSaas() {
         <section className="cs-block">
           <Seq n="01">The problem</Seq>
           <p>
-            A job sat in CRM, Excel, paper drawings, WhatsApp, and a separate accounts file. Same customer, five
-            places. Those are the eight steps below.
+            Managing a single smart home project required teams to work across multiple disconnected tools, including
+            CRM, Excel, WhatsApp, technical drawings, and accounting files. With project information scattered across
+            different systems, teams lacked a single source of truth, making coordination, tracking, and handoffs
+            difficult.
           </p>
         </section>
 
